@@ -10,17 +10,17 @@ module.exports = yeoman.Base.extend({
       'Welcome to the kickass ' + chalk.red('generator-wpautomate') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    // var prompts = [{
+    //   type: 'confirm',
+    //   name: 'someAnswer',
+    //   message: 'Would you like to enable this option?',
+    //   default: true
+    // }];
 
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    }.bind(this));
+    // return this.prompt(prompts).then(function (props) {
+    //   // To access props later use this.props.someAnswer;
+    //   this.props = props;
+    // }.bind(this));
   },
 
   writing: function () {
@@ -123,7 +123,6 @@ module.exports = yeoman.Base.extend({
       this.templatePath('styles.js'),
       this.destinationPath('gulp-tasks/styles.js')
     );
-   
   },
 
   install: function () {

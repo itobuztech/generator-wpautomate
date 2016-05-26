@@ -26,8 +26,12 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     // root files
     this.fs.copy(
-      this.templatePath('bower.json'),
+      this.templatePath('_bower.json'),
       this.destinationPath('bower.json ')
+    );
+     this.fs.copy(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json')
     );
     this.fs.copy(
       this.templatePath('_gitattributes'),
@@ -91,10 +95,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('package.js'),
       this.destinationPath('gulp-tasks/package.js')
     );
-    this.fs.copy(
-      this.templatePath('package.json'),
-      this.destinationPath('gulp-tasks/package.json')
-    );
+   
     this.fs.copy(
       this.templatePath('post-merge.txt'),
       this.destinationPath('gulp-tasks/post-merge.txt')

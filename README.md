@@ -16,6 +16,9 @@ Then generate your new project:
 yo wpautomate
 ```
 
+## Wpautomate documentation
+https://github.com/developer-prosenjit/wpautomate/wiki
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.

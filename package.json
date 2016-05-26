@@ -1,6 +1,6 @@
 {
   "name": "generator-wpautomate",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Wordpress project generators and usefull gulp tasks",
   "homepage": "",
   "author": {
@@ -13,7 +13,10 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "wordpress generators",
+    "wordpress",
+    "wp"
   ],
   "dependencies": {
     "yeoman-generator": "^0.23.0",

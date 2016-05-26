@@ -40,7 +40,7 @@
       "mocha": true
     }
   },
-  "repository": "developer.prosenjit/generator-wpautomate",
+  "repository": "developer-prosenjit/generator-wpautomate",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

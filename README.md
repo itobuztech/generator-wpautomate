@@ -33,7 +33,7 @@ Apache-2.0 © [Prosenjit]()
 
 [npm-image]: https://badge.fury.io/js/generator-wpautomate.svg
 [npm-url]: https://npmjs.org/package/generator-wpautomate
-[travis-image]: https://travis-ci.org/developer.prosenjit/generator-wpautomate.svg?branch=master
-[travis-url]: https://travis-ci.org/developer.prosenjit/generator-wpautomate
-[daviddm-image]: https://david-dm.org/developer.prosenjit/generator-wpautomate.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/developer.prosenjit/generator-wpautomate
+[travis-image]: https://travis-ci.org/developer-prosenjit/generator-wpautomate.svg?branch=master
+[travis-url]: https://travis-ci.org/developer-prosenjit/generator-wpautomate
+[daviddm-image]: https://david-dm.org/developer-prosenjit/generator-wpautomate.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/developer-prosenjit/generator-wpautomate

@@ -1,0 +1,3 @@
+#!/bin/bash
+mysqldump -u db_user   --skip-extended-insert db_name > db.txt
+git add db.txt

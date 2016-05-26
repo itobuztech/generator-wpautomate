@@ -1,0 +1,2 @@
+#!/bin/bash
+mysql -u db_user  db_name < db.txt

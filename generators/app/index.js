@@ -2,7 +2,16 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var _ = require('lodash');
+var path = require('path');
 
+
+
+function makeGeneratorName(name) {
+  name = _.kebabCase(name);
+  name = name.indexOf('generator-') === 0 ? name : '' + name;
+  return name;
+}
 module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
@@ -10,28 +19,37 @@ module.exports = yeoman.Base.extend({
       'Welcome to the kickass ' + chalk.red('generator-wpautomate') + ' generator!'
     ));
 
-    // var prompts = [{
-    //   type: 'confirm',
-    //   name: 'someAnswer',
-    //   message: 'Would you like to enable this option?',
-    //   default: true
-    // }];
+    var prompts = [{
+      name: 'name',
+      message: 'Your project name',
+      default: makeGeneratorName(path.basename(process.cwd())),
+      validate: function (str) {
+        return str.length > 0;
+      }
+    }];
 
-    // return this.prompt(prompts).then(function (props) {
-    //   // To access props later use this.props.someAnswer;
-    //   this.props = props;
-    // }.bind(this));
+    return this.prompt(prompts).then(function (props) {
+      // To access props later use this.props.someAnswer;
+      this.props = props;
+    }.bind(this));
   },
 
   writing: function () {
+   
     // root files
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('_bower.json'),
-      this.destinationPath('bower.json ')
+      this.destinationPath('bower.json '),
+      {
+        'projectName': this.props.name
+      }
     );
-     this.fs.copy(
+     this.fs.copyTpl(
       this.templatePath('_package.json'),
-      this.destinationPath('package.json')
+      this.destinationPath('package.json'),
+      {
+        'projectName': this.props.name
+      }
     );
     this.fs.copy(
       this.templatePath('_gitattributes'),

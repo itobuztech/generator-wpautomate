@@ -19,12 +19,11 @@ yo wpautomate
 ## Wpautomate documentation
 https://github.com/developer-prosenjit/wpautomate/wiki
 
-## Getting To Know Yeoman
+## Changelog
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+#### 0.0.7
+Change project name from user interction from terminal prompt.
+
 
 ## License
 

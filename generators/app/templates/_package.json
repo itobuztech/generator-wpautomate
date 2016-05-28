@@ -6,7 +6,7 @@
     "node": ">=4.2.4"
   },
   "devDependencies": {
-    "wpautomate": "^0.0.3"
+    "wpautomate": "^0.0.4"
   },
   "wporg_plugins": {
     "contact-form-7": "Conctact form 7",

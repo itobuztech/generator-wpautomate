@@ -26,12 +26,68 @@ module.exports = yeoman.Base.extend({
       validate: function (str) {
         return str.length > 0;
       }
+    },{
+      name: 'wpdb',
+      message: 'DB name',
+      default: makeGeneratorName(path.basename(process.cwd())),
+      validate: function (str) {
+        return str.length > 0;
+      }
+    },
+    {
+      name: 'wpdbUser',
+      message: 'DB user name?',
+      default: 'root'
+    },
+    {
+      name: 'wpdbPass',
+      message: 'DB Password?',
+      default: ''
+    },
+    {
+      name: 'wpdbHost',
+      message: 'DB Host name?',
+      default: 'localhost'
+    },
+    {
+      name: 'wpdbChar',
+      message: 'DB CHAR?',
+      default: 'utf8mb4'
+    },
+    {
+      name: 'authorName',
+      message: 'Your Name?',
+      default: 'Yeoman'
+    },
+    {
+      name: 'authorEmail',
+      message: 'Your Email?',
+      default: '',
+      validate: function(str) {
+        return str.length > 0;
+      }
     }];
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
+  },
+  envTemplate: function() {
+    
+    this.fs.copyTpl(
+      this.templatePath('env.json'),
+      this.destinationPath('gulp-tasks/env.json'),
+      {
+        'dbName': this.props.wpdb,
+        'wpdbUser': this.props.wpdbUser,
+        'wpdbPass': this.props.wpdbPass,
+        'wpdbHost': this.props.wpdbHost,
+        'wpdbChar': this.props.wpdbChar,
+        'authorName': this.props.authorName,
+        'authorEmail': this.props.authorEmail
+      }
+    );
   },
 
   writing: function () {
@@ -141,6 +197,10 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('styles.js'),
       this.destinationPath('gulp-tasks/styles.js')
+    );
+    this.fs.copy(
+      this.templatePath('wp-config.tpl'),
+      this.destinationPath('gulp-tasks/wp-config.tpl')
     );
   },
 

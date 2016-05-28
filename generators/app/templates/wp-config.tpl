@@ -11,11 +11,11 @@
 
 
 /* MySQL settings */
-define( 'DB_NAME',     'wpautomate_db' );
-define( 'DB_USER',     'root' );
-define( 'DB_PASSWORD', '' );
-define( 'DB_HOST',     'localhost' );
-define( 'DB_CHARSET',  'utf8mb4' );
+define( 'DB_NAME',     'db_name' );
+define( 'DB_USER',     'db_user' );
+define( 'DB_PASSWORD', 'wpdbPass' );
+define( 'DB_HOST',     'wpdbHost' );
+define( 'DB_CHARSET',  'wpdbChar' );
 
 
 /* MySQL database table prefix. */
@@ -33,9 +33,6 @@ define('LOGGED_IN_SALT',   ':(eZ=Z&M$^0UE?}.oj}]HzM@iM.Fs.e1eVMaYp$x3U3EMky3gJ?W
 define('NONCE_SALT',       '$2j`vrj6|r@ooXDoPX;-/UvV_bW -sQ46,3sc~+qn4Ru=jVy2_SK{Q^E&@0kqP/4');
 
 
-/* Custom WordPress URL. */
-define( 'WP_SITEURL',     'http://localhost/wpautomate' );
-define( 'WP_HOME',        'http://localhost/wpautomate' );
 
 
 /* Specify maximum number of Revisions. */

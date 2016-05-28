@@ -14,21 +14,20 @@ var del = require('del');
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test) 
 gulp.task('themeinstall', function() {
   return g.git.clone('https://prosenjit_itobuz@bitbucket.org/prosenjit_itobuz/wpautomate-theme.git', {args: './wp-content/themes/wpautomate'}, function(err) {
-    console.log('Please setup env. env-example.json located in /gulp-tasks. Rename it to env.json');
-    console.log('Itobuz members please visit this url https://goo.gl/zMcNOY to download pre configured env.')
+    console.log('Please setup env. env-example.json located in /gulp-tasks.');
   });
 });
 
 gulp.task('wordpress:download', function(){
-	return  new download({mode: '755'})
+  return  new download({mode: '755'})
     .get('https://wordpress.org/latest.zip')
     .dest('temp')
     .run(function () {
-    	console.log('Latest version wordpres downloaded. Unzip process started...');
-    	runSequence(
-    		'wordpress:unzip',
-    		'wordpress:copy'
-    		);
+      console.log('Latest version wordpres downloaded. Unzip process started...');
+      runSequence(
+        'wordpress:unzip',
+        'wordpress:copy'
+        );
     });
 });
 
@@ -50,23 +49,23 @@ gulp.task('wordpress:unzip', function(){
 gulp.task('clean', function(){
   return del(['wp-admin', 'wp-includes', '*.php', '!wp-config.php'])
   .then(function(){
-  	console.log('wordpres core clean completed.');
+    console.log('wordpres core clean completed.');
   });
 });
 
 gulp.task('clean:temp', function(){
   return del(['temp'])
   .then(function(){
-  	console.log('temp cleaned.');
+    console.log('temp cleaned.');
   });
 });
 
 
 
 gulp.task('wpSetup', function() {
-	runSequence(
-		'wordpress:download'
-		);
+  runSequence(
+    'wordpress:download'
+    );
 });
 
 gulp.task('projectSetup', function() {
@@ -166,7 +165,7 @@ function installPluginEnvato(error, response, body) {
         if (err) {
           console.log(err);
         }else {
-        	console.log('Rev slider download completed.');
+          console.log('Rev slider download completed.');
         }
       });
     }
@@ -183,7 +182,7 @@ function installPluginEnvato(error, response, body) {
         if (err) {
           console.log(err);
         }else {
-        	console.log('ultimate vc addon completed.');
+          console.log('ultimate vc addon completed.');
         }
       });
     }
@@ -242,7 +241,7 @@ gulp.task('plugin:installEnvato', function(){
       console.log('No Paid plugins or api key is missing.')
     }
   }catch(e){
-    console.log('setup env env-example.json located gulp-tasks/  in root. Rename to env.json and set your env details');
+    console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');
   }
 
 });
@@ -250,53 +249,53 @@ gulp.task('plugin:installEnvato', function(){
 // rename project
 // replace string from gulp task
 gulp.task('rp:tasks', function(){
-	if (p.name!==config.themename) {
-		return gulp.src(['./gulp-tasks/*.*'])
-		  .pipe(g.replace(config.themename, p.name))
-		  .pipe(g.replace(config.packageName, p.name))
-		  .pipe(gulp.dest('./gulp-tasks'));
-	}else {
-		console.log('change package name.');
-	}
+  if (p.name!==config.themename) {
+    return gulp.src(['./gulp-tasks/*.*'])
+      .pipe(g.replace(config.themename, p.name))
+      .pipe(g.replace(config.packageName, p.name))
+      .pipe(gulp.dest('./gulp-tasks'));
+  }else {
+    console.log('change package name.');
+  }
 
 });
 // replace theme string
 gulp.task('rp:textdomain', function(){
-	if (p.name!==config.themename) {
-	  return gulp.src([config.themefolder+'**/*.php', config.themefolder+'**/*.css'])
-	    .pipe(g.replace(config.textdomain, p.name))
-	    .pipe(g.replace(config.packageName, p.name))
-	    .pipe(gulp.dest(config.themefolder));
+  if (p.name!==config.themename) {
+    return gulp.src([config.themefolder+'**/*.php', config.themefolder+'**/*.css'])
+      .pipe(g.replace(config.textdomain, p.name))
+      .pipe(g.replace(config.packageName, p.name))
+      .pipe(gulp.dest(config.themefolder));
    }else {
-   		console.log('change package name.');
-   	}
+      console.log('change package name.');
+    }
 });
 // copy theme
 gulp.task('rp:copy', function(){
-	if (p.name!==config.themename) {
+  if (p.name!==config.themename) {
   return gulp.src(config.themefolder+'**/*.*')
   .pipe(gulp.dest('./wp-content/themes/'+p.name));
   }else {
-  		console.log('change package name.');
+      console.log('change package name.');
   }
 });
 // old theme delete
 gulp.task('rp:del', function(){
-	if (p.name!==config.themename) {
-	  return del([config.themefolder])
-	  .then(function(){
-	    console.log(config.themename+' removed from theme folder.');
-	  });
+  if (p.name!==config.themename) {
+    return del([config.themefolder])
+    .then(function(){
+      console.log(config.themename+' removed from theme folder.');
+    });
   }else {
-  		console.log('change package name.');
-  	}
+      console.log('change package name.');
+    }
 });
 
 // rename project main task
 gulp.task('wp:rp', function(){
   if (p.name!==config.themename) {
     runSequence(
-    	'rp:textdomain',
+      'rp:textdomain',
       'rp:copy',
       'rp:del',
       'rp:tasks'
@@ -308,55 +307,69 @@ gulp.task('wp:rp', function(){
 
 // backup db auto with git commit
 gulp.task('backup:git', function(){
-	try {
-		var env = require('./env.json');
-		gulp.src('./gulp-tasks/pre-commit.txt')
-		.pipe(g.rename('pre-commit'))
-		.pipe(g.replace('db_user', env.db_user))
-		.pipe(g.replace('db_name', env.db_name))
-		.pipe(gulp.dest('./.git/hooks/'));
-	}catch (e) {
-		console.log('setup env env-example.json located gulp-tasks/  in root. Rename to env.json and set your env details');
-	}
+  try {
+    var env = require('./env.json');
+    gulp.src('./gulp-tasks/pre-commit.txt')
+    .pipe(g.rename('pre-commit'))
+    .pipe(g.replace('db_user', env.db_user))
+    .pipe(g.replace('db_name', env.db_name))
+    .pipe(gulp.dest('./.git/hooks/'));
+  }catch (e) {
+    console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');
+  }
 
 });
 
 // restore db auto with git pull
 gulp.task('restore:git', function(){
-	try {
-		var env = require('./env.json');
-		gulp.src('./gulp-tasks/post-merge.txt')
-		.pipe(g.rename('post-merge'))
-		.pipe(g.replace('db_user', env.db_user))
-		.pipe(g.replace('db_name', env.db_name))
-		.pipe(gulp.dest('./.git/hooks/'));
-	}catch (e) {
-		console.log('setup env env-example.json located gulp-tasks/  in root. Rename to env.json and set your env details');
-	}
+  try {
+    var env = require('./env.json');
+    gulp.src('./gulp-tasks/post-merge.txt')
+    .pipe(g.rename('post-merge'))
+    .pipe(g.replace('db_user', env.db_user))
+    .pipe(g.replace('db_name', env.db_name))
+    .pipe(gulp.dest('./.git/hooks/'));
+  }catch (e) {
+    console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');
+  }
 
 });
 
 // backup db manual
 gulp.task('backup', function () {
-	try {
-		var env = require('./env.json');
-  	return gulp.src('*.js', {read: false})
+  try {
+    var env = require('./env.json');
+    return gulp.src('*.js', {read: false})
     .pipe(g.shell([
      'mysqldump -u '+env.db_user+' -p  --skip-extended-insert '+ env.db_name+' > db.txt'
     ]));
    }catch (e) {
-   		console.log('setup env env-example.json located gulp-tasks/  in root. Rename to env.json and set your env details');
+      console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');
   }
 });
 // restore db manual
 gulp.task('restore', function () {
-	try {
-		var env = require('./env.json');
-	  return gulp.src('*.js', {read: false})
-	    .pipe(g.shell([
-	     'mysql -u '+env.db_user+' -p '+ env.db_name +' < db.txt'
-	    ]));
+  try {
+    var env = require('./env.json');
+    return gulp.src('*.js', {read: false})
+      .pipe(g.shell([
+       'mysql -u '+env.db_user+' -p '+ env.db_name +' < db.txt'
+      ]));
    }catch (e) {
-   		console.log('setup env env-example.json located gulp-tasks/  in root. Rename to env.json and set your env details');
+      console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');
   }
+});
+
+gulp.task('wp-config', function() {
+  var env = require('./env.json');
+  gulp.src('gulp-tasks/wp-config.tpl')
+  .pipe(g.replace('db_name', env.db_name))
+  .pipe(g.replace('db_user', env.db_user))
+  .pipe(g.replace('wpdbPass', env.wpdbPass))
+  .pipe(g.replace('wpdbHost', env.wpdbHost))
+  .pipe(g.replace('wpdbChar', env.wpdbChar))
+  .pipe(g.replace('authorName', env.authorName))
+  .pipe(g.replace('authorEmail', env.authorEmail))
+  .pipe(g.rename('wp-config.php'))
+  .pipe(gulp.dest('./'));
 });

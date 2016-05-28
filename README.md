@@ -1,4 +1,4 @@
-# generator-wpautomate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-wpautomate [![NPM version][npm-image]][npm-url][![Dependency Status][daviddm-image]][daviddm-url]
 > 
 
 ## Installation
@@ -21,8 +21,10 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.7
-Change project name from user interction from terminal prompt.
+#### 0.0.8
+Fix dependency issue. for dependency issue any task not executed. wp-config.php generator added. 
+
+[more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 
 
 ## License
@@ -36,3 +38,4 @@ Apache-2.0 © [Prosenjit]()
 [travis-url]: https://travis-ci.org/developer-prosenjit/generator-wpautomate
 [daviddm-image]: https://david-dm.org/developer-prosenjit/generator-wpautomate.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/developer-prosenjit/generator-wpautomate
+

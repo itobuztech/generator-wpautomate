@@ -22,7 +22,7 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 ## Changelog
 
 #### 0.0.9
-Cli update notifier updated.
+Rlease a new update for update notification check.
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

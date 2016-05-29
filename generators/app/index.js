@@ -4,11 +4,13 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
 var path = require('path');
-var updateNotifier = require('update-notifier');
-var pkg = require('../../package.json');
-var notifier = updateNotifier({pkg:pkg});
+const updateNotifier = require('update-notifier');
+const pkg = require('../../package.json');
+const notifier = updateNotifier({
+  pkg,
+  updateCheckInterval: 1000
+});
 
-notifier.notify();
 
 function makeGeneratorName(name) {
   name = _.kebabCase(name);
@@ -17,6 +19,7 @@ function makeGeneratorName(name) {
 }
 module.exports = yeoman.Base.extend({
   prompting: function () {
+    notifier.notify();
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the kickass ' + chalk.red('generator-wpautomate') + ' generator!'
@@ -208,6 +211,6 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
+    //this.installDependencies();
   }
 });

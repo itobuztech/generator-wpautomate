@@ -21,8 +21,8 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.10
-Rlease a new update for update notification check.
+#### 0.0.11
+generator-wpautomate update-notification is working now
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

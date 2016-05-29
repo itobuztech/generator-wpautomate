@@ -1,3 +1,9 @@
+#### 0.0.11
+generator-wpautomate update-notification is working now
+
+#### 0.0.10
+Release a new update for update notification check.
+
 #### 0.0.9
 Cli update notifier updated.
 

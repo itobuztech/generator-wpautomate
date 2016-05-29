@@ -21,8 +21,8 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.11
-generator-wpautomate update-notification is working now
+#### 0.0.12
+fix auto install npm and bower dependency.
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

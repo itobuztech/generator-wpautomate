@@ -1,3 +1,6 @@
+#### 0.0.12
+fix auto install npm and bower dependency.
+
 #### 0.0.11
 generator-wpautomate update-notification is working now
 

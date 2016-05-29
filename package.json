@@ -1,6 +1,6 @@
 {
   "name": "generator-wpautomate",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Wordpress project generators and usefull gulp tasks",
   "homepage": "",
   "author": {
@@ -19,8 +19,9 @@
     "wp"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
+    "update-notifier": "^0.7.0",
+    "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"
   },
   "devDependencies": {

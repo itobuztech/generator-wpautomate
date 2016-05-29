@@ -21,8 +21,8 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.8
-Fix dependency issue. for dependency issue any task not executed. wp-config.php generator added. 
+#### 0.0.9
+Cli update notifier updated.
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

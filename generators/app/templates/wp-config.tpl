@@ -45,19 +45,14 @@ define( 'WP_DEBUG_LOG',     true );
 define( 'WP_DEBUG_DISPLAY', true );
 define( 'SCRIPT_DEBUG',     true );
 
-
-/* PHP Memory */
-
-
-/* WordPress Cache */
-define( 'WP_CACHE', true );
-
-
 /* Compression */
 define( 'COMPRESS_CSS',        true );
 define( 'COMPRESS_SCRIPTS',    true );
 define( 'CONCATENATE_SCRIPTS', true );
 define( 'ENFORCE_GZIP',        true );
+
+/* Live reload */
+define('live_reload', true);
 
 
 /* Absolute path to the WordPress directory. */

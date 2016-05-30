@@ -1,4 +1,5 @@
 'use strict';
+/* global console */
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var request = require('request');
@@ -19,6 +20,7 @@ gulp.task('themeinstall', function() {
 });
 
 gulp.task('wordpress:download', function(){
+  console.log('Latest version wordpres downloading...');
   return  new download({mode: '755'})
     .get('https://wordpress.org/latest.zip')
     .dest('temp')
@@ -64,7 +66,8 @@ gulp.task('clean:temp', function(){
 
 gulp.task('wpSetup', function() {
   runSequence(
-    'wordpress:download'
+    'wordpress:download',
+    'wp-config'
     );
 });
 

@@ -21,8 +21,11 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.13
-fix No bower.json present issue.
+#### 0.0.14
+1. latest version wordpress will install after npm and bower install.
+2. latest version wpautomate theme will install after latest version wordpress install.
+3. wp-config.php will be generate latest version wordpress install.
+4. After above process completed rename project task will run and theme name and all config, all theme functions, textdomain will be updated with latest project name.
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

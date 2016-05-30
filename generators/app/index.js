@@ -212,5 +212,8 @@ module.exports = yeoman.Base.extend({
 
   install: function () {
     this.installDependencies();
+    this.spawnCommand('gulp', ['wpSetup']);
+    this.spawnCommand('gulp', ['wp-config']);
+    this.spawnCommand('gulp', ['themeinstall']);
   }
 });

@@ -16,6 +16,7 @@ var del = require('del');
 gulp.task('themeinstall', function() {
   return g.git.clone('https://prosenjit_itobuz@bitbucket.org/prosenjit_itobuz/wpautomate-theme.git', {args: './wp-content/themes/wpautomate'}, function(err) {
     console.log('Please setup env. env-example.json located in /gulp-tasks.');
+    runSequence('wp-rp');
   });
 });
 
@@ -73,8 +74,9 @@ gulp.task('wpSetup', function() {
 
 gulp.task('projectSetup', function() {
   runSequence(
-    'plugin:install',
-    'clean:temp'
+    'wpSetup',
+    'wp-config',
+    'themeinstall'
     );
 });
 
@@ -364,7 +366,7 @@ gulp.task('restore', function () {
 
 gulp.task('wp-config', function() {
   var env = require('./env.json');
-  gulp.src('gulp-tasks/wp-config.tpl')
+  return gulp.src('gulp-tasks/wp-config.tpl')
   .pipe(g.replace('db_name', env.db_name))
   .pipe(g.replace('db_user', env.db_user))
   .pipe(g.replace('wpdbPass', env.wpdbPass))

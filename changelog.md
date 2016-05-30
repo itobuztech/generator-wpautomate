@@ -1,3 +1,8 @@
+#Changelog
+
+#### 0.0.13
+fix No bower.json present issue.
+
 #### 0.0.12
 fix auto install npm and bower dependency.
 

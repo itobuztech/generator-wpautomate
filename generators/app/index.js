@@ -101,7 +101,7 @@ module.exports = yeoman.Base.extend({
     // root files
     this.fs.copyTpl(
       this.templatePath('_bower.json'),
-      this.destinationPath('bower.json '),
+      this.destinationPath('bower.json'),
       {
         'projectName': this.props.name
       }

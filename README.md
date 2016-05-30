@@ -21,8 +21,8 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.12
-fix auto install npm and bower dependency.
+#### 0.0.13
+fix No bower.json present issue.
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

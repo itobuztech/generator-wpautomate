@@ -73,7 +73,6 @@ gulp.task('wpSetup', function() {
 
 gulp.task('projectSetup', function() {
   runSequence(
-    'wp:rp',
     'plugin:install',
     'clean:temp'
     );
@@ -295,7 +294,7 @@ gulp.task('rp:del', function(){
 });
 
 // rename project main task
-gulp.task('wp:rp', function(){
+gulp.task('wp-rp', function(){
   if (p.name!==config.themename) {
     runSequence(
       'rp:textdomain',

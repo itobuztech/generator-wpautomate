@@ -3,16 +3,39 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
+
 describe('generator-wpautomate:app', function () {
-  before all(function () {
-    return helpers.run(path.join(__dirname, '../generators/app/templates'))
-      .withPrompts({someAnswer: true})
-      .toPromise();
+  before(function (done) {
+    helpers.run(path.join(__dirname, '../generators/app'))
+    
+      .withGenerators([
+        [helpers.createDummyGenerator(), 'mocha:app']
+      ])
+      .on('end', done);
   });
 
-  it('creates files', function () {
-    assert.file([
-      'styles.js'
-    ]);
+  it('the generator can be required without throwing', function () {
+    // not testing the actual run of generators yet
+    require('../generators/app');
   });
+
+  it('should add dependencies', function () {
+    assert.fileContent('package.json', '"require-dir"');
+    assert.fileContent('package.json', '"gulp-plumber"');
+  });
+
+  it('creates expected files', function () {
+	  assert.file([
+	    'bower.json',
+      'package.json',
+      '.editorconfig',
+      '.bowerrc',
+      '.gitignore',
+      '.gitattributes'
+	  ]);
+	});
+
+ 
+
+  
 });

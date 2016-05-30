@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var request = require('request');
 var g = require('gulp-load-plugins')();
-var requireDir = require('require-dir');
 var config = require('./config.json');
 var p = require('../package.json');
 var download = require('download');
@@ -129,7 +128,7 @@ gulp.task('plugin:install', function(){
       if (err) {
         console.log(err);
       }else {
-        console.log('One of plugin download completed.')
+        console.log('One of plugin download completed.');
       }
     });
   }
@@ -192,7 +191,7 @@ function installPluginEnvato(error, response, body) {
     }
 
   }else {
-    console.log('purchase_code error.')
+    console.log('purchase_code error.');
   }
 }
 
@@ -242,7 +241,7 @@ gulp.task('plugin:installEnvato', function(){
      
 
     }else {
-      console.log('No Paid plugins or api key is missing.')
+      console.log('No Paid plugins or api key is missing.');
     }
   }catch(e){
     console.log('setup env env-example.json located gulp-tasks/  in root. update your current env from env-example.json');

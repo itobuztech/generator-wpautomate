@@ -1,9 +1,7 @@
 'use strict';
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
 var gcmq = require('gulp-group-css-media-queries');
 var g = require('gulp-load-plugins')();
-var requireDir = require('require-dir');
 var config = require('./config.json');
 
 

@@ -80,7 +80,7 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
   envTemplate: function() {
-    
+
     this.fs.copyTpl(
       this.templatePath('env.json'),
       this.destinationPath('gulp-tasks/env.json'),
@@ -97,7 +97,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-   
+
     // root files
     this.fs.copyTpl(
       this.templatePath('_bower.json'),
@@ -175,7 +175,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('package.js'),
       this.destinationPath('gulp-tasks/package.js')
     );
-   
+
     this.fs.copy(
       this.templatePath('post-merge.txt'),
       this.destinationPath('gulp-tasks/post-merge.txt')
@@ -211,7 +211,11 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
-    this.spawnCommand('gulp', ['projectSetup']);
+    this.installDependencies({
+      callback: function () {
+        this.spawnCommand('gulp', ['projectSetup']);
+      }.bind(this)
+    });
   }
+
 });

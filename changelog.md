@@ -1,5 +1,8 @@
 #Changelog
 
+#### 0.0.15
+Fix call back functions for dependency install
+
 #### 0.0.14
 1. latest version wordpress will install after npm and bower install.
 2. latest version wpautomate theme will install after latest version wordpress install.

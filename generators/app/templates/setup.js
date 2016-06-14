@@ -11,9 +11,9 @@ var del = require('del');
 
 
 
-// Clone remote repo to sub folder ($CWD/sub/folder/git-test) 
+// Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
-  return g.git.clone('https://prosenjit_itobuz@bitbucket.org/prosenjit_itobuz/wpautomate-theme.git', {args: './wp-content/themes/wpautomate'}, function(err) {
+  return g.git.clone('https://github.com/developer-prosenjit/wpautomate.git', {args: './wp-content/themes/wpautomate'}, function(err) {
     console.log('Please setup env. env-example.json located in /gulp-tasks.');
     runSequence('wp-rp');
   });
@@ -117,20 +117,26 @@ gulp.task('plugin:install', function(){
   var item_length = Object.keys(p.wporg_plugins).length;
   var temp = [];
   var url = [];
+  var reqtest = [];
   for (var i=0; i<item_length; i++) {
     temp[i] = Object.keys(p.wporg_plugins)[i];
     url[i] = wporgrepo+temp[i]+'.zip';
-    console.log(url[i]+' downloading...');
-    new download({mode: '755', extract: true})
-    .get(url[i])
-    .dest('./wp-content/plugins')
-    .run(function (err, files) {
-      if (err) {
-        console.log(err);
-      }else {
-        console.log('One of plugin download completed.');
-      }
-    });
+    try {
+      requireDir('../wp-content/plugins/'+temp[i]);
+      console.log('Skip '+temp[i]+' plugin.')
+    }catch(err) {
+      console.log(temp[i]+' downloading...');
+      new download({mode: '755', extract: true})
+      .get(url[i])
+      .dest('./wp-content/plugins')
+      .run(function (err, files) {
+        if (err) {
+          console.log(err);
+        }else {
+          console.log('One of plugin download completed.')
+        }
+      });
+    }
   }
 });
 
@@ -238,7 +244,7 @@ gulp.task('plugin:installEnvato', function(){
 
         request(lists.ultimate_vc, installPluginEnvato);
       }
-     
+
 
     }else {
       console.log('No Paid plugins or api key is missing.');

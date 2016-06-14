@@ -21,8 +21,9 @@ https://github.com/developer-prosenjit/wpautomate/wiki
 
 ## Changelog
 
-#### 0.0.15
-Fix call back functions for dependency install
+#### 0.0.16
+1. WP  installed plugin will be skipped 
+2. wpautomate theme repo path changed
 
 [more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 

@@ -1,5 +1,9 @@
 #Changelog
 
+#### 0.0.16
+1. WP  installed plugin will be skipped 
+2. wpautomate theme repo path changed
+
 #### 0.0.15
 Fix call back functions for dependency install
 

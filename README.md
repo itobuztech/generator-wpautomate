@@ -1,6 +1,9 @@
 # generator-wpautomate [![NPM version][npm-image]][npm-url][![Dependency Status][daviddm-image]][daviddm-url][![Gitter](https://badges.gitter.im/developer-prosenjit/generator-wpautomate.svg)](https://gitter.im/developer-prosenjit/generator-wpautomate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 > 
 
+### Roadmap 
+[See the trello board](https://trello.com/b/810MTIW5/generator-wpautomate)
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-wpautomate using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).

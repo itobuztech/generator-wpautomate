@@ -75,7 +75,8 @@ gulp.task('projectSetup', function() {
   runSequence(
     'wpSetup',
     'wp-config',
-    'themeinstall'
+    'themeinstall',
+    'ua:setup'
     );
 });
 

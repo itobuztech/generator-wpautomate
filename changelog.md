@@ -1,4 +1,6 @@
 #Changelog
+#### 0.0.17
+analytics added for app usage status
 
 #### 0.0.16
 1. WP  installed plugin will be skipped 

@@ -1,5 +1,5 @@
 {
-  "name": "<%=projectName%>",
+  "name": "wpautomate",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -39,7 +39,8 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
     "vinyl-ftp": "^0.4.5",
-    "yargs": "^4.7.0"
+    "yargs": "^4.7.0",
+    "universal-analytics": "0.4.2"
   },
   "wporg_plugins": {
     "contact-form-7": "Conctact form 7",

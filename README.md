@@ -22,13 +22,7 @@ yo wpautomate
 ## Wpautomate documentation
 https://github.com/developer-prosenjit/wpautomate/wiki
 
-## Changelog
-
-#### 0.0.16
-1. WP  installed plugin will be skipped 
-2. wpautomate theme repo path changed
-
-[more changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
+[Changelog](https://github.com/developer-prosenjit/generator-wpautomate/blob/master/changelog.md)
 
 ## Issues
 [Report issues here](https://github.com/developer-prosenjit/generator-wpautomate/issues)

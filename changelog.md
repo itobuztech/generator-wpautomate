@@ -1,4 +1,8 @@
 #Changelog
+#### 0.0.18
+Wordpress core downlod with wp cli added in task
+
+
 #### 0.0.17
 analytics added for app usage status
 

@@ -205,6 +205,14 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulp-tasks/styles.js')
     );
     this.fs.copy(
+      this.templatePath('analytics.js'),
+      this.destinationPath('gulp-tasks/analytics.js')
+    );
+    this.fs.copy(
+      this.templatePath('setup-wp-cli.js.js'),
+      this.destinationPath('gulp-tasks/setup-wp-cli.js.js')
+    );
+    this.fs.copy(
       this.templatePath('wp-config.tpl'),
       this.destinationPath('gulp-tasks/wp-config.tpl')
     );

@@ -383,3 +383,13 @@ gulp.task('wp-config', function() {
   .pipe(g.rename('wp-config.php'))
   .pipe(gulp.dest('./'));
 });
+
+gulp.task('destroy', function(){
+  return del([
+    'wp-content', 'wp-admin', 'wp-includes', 
+    'documentattion', 'gulp-tasks', '.*'
+    ])
+  .then(function(){
+    console.log('All files removed.');
+  });
+});

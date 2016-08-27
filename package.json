@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
+    "lodash": "^4.15.0",
     "update-notifier": "^0.7.0",
     "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"

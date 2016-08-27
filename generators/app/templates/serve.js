@@ -7,7 +7,7 @@ var requireDir = require('require-dir');
 var config = require('./config.json');
 var p = require('../package.json');
 
-gulp.task('serve', ['styles:dev', 'build', 'ua:serve'], function () {
+gulp.task('serve', ['styles:dev',  'ua:serve'], function () {
   g.livereload.listen();
   gulp.watch(config.themefolder+'**/*.php').on('change', function(file) {
     g.livereload.changed(file.path);

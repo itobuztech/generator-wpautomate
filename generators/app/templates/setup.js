@@ -13,39 +13,11 @@ var del = require('del');
 
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
-  return g.git.clone('https://github.com/developer-prosenjit/wpautomate.git', {args: './wp-content/themes/wpautomate'}, function(err) {
+  return g.git.clone('https://github.com/Automattic/_s.git', {args: './wp-content/themes/wpautomate'}, function(err) {
     console.log('Please setup env. env-example.json located in /gulp-tasks.');
     runSequence('wp-rp');
   });
 });
-
-gulp.task('wordpress:download', function(){
-  console.log('Latest version wordpres downloading...');
-  return  new download({mode: '755'})
-    .get('https://wordpress.org/latest.zip')
-    .dest('temp')
-    .run(function () {
-      console.log('Latest version wordpres downloaded. Unzip process started...');
-      runSequence(
-        'wordpress:unzip',
-        'wordpress:copy'
-        );
-    });
-});
-
-gulp.task('wordpress:copy', function(){
-  gulp.src(['./temp/wordpress/**/*.*', '!./temp/wordpress/wp-content'])
-  .pipe(gulp.dest('./'));
-});
-
-
-
-gulp.task('wordpress:unzip', function(){
-  return gulp.src('./temp/latest.zip')
-  .pipe(g.unzip())
-  .pipe(gulp.dest('./temp'));
-});
-
 
 
 gulp.task('clean', function(){
@@ -66,19 +38,11 @@ gulp.task('clean:temp', function(){
 
 gulp.task('wpSetup', function() {
   runSequence(
-    'wordpress:download',
-    'wp-config'
-    );
-});
-
-gulp.task('projectSetup', function() {
-  runSequence(
-    'wpSetup',
-    'wp-config',
-    'themeinstall',
+    'wpcli:install-core',
     'ua:setup'
     );
 });
+
 
 gulp.task('plugin:uninstall', function(){
   var wporg = Object.keys(p.wporg_plugins).length;

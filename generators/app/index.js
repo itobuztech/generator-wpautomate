@@ -208,20 +208,25 @@ module.exports = yeoman.Base.extend({
       this.templatePath('analytics.js'),
       this.destinationPath('gulp-tasks/analytics.js')
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('setup-wp-cli.js.js'),
-      this.destinationPath('gulp-tasks/setup-wp-cli.js.js')
-    );
-    this.fs.copy(
-      this.templatePath('wp-config.tpl'),
-      this.destinationPath('gulp-tasks/wp-config.tpl')
+      this.destinationPath('gulp-tasks/setup-wp-cli.js.js'),
+      {
+        'dbName': this.props.wpdb,
+        'wpdbUser': this.props.wpdbUser,
+        'wpdbPass': this.props.wpdbPass,
+        'wpdbHost': this.props.wpdbHost,
+        'wpdbChar': this.props.wpdbChar,
+        'authorName': this.props.authorName,
+        'authorEmail': this.props.authorEmail
+      }
     );
   },
 
   install: function () {
     this.installDependencies({
       callback: function () {
-        this.spawnCommand('gulp', ['projectSetup']);
+        this.spawnCommand('gulp', ['wpSetup']);
       }.bind(this)
     });
   }

@@ -351,8 +351,8 @@ gulp.task('wp-config', function() {
 gulp.task('destroy', function(){
   return del([
     'wp-content', 'wp-admin', 'wp-includes', 
-    'documentation', 'gulp-tasks', '.*',
-    '!.git'
+    'documentation', 'gulp-tasks', '.*', '*.*',
+    '!.git', '!node_modules', '!bower_components'
     ])
   .then(function(){
     console.log('All files removed.');

@@ -1,6 +1,6 @@
 {
-  "name": "generator-wpautomate",
-  "version": "0.0.18",
+  "name": "generator-wp-automate",
+  "version": "0.0.1",
   "description": "Wordpress project generators and usefull gulp tasks",
   "homepage": "",
   "author": {
@@ -45,7 +45,7 @@
       "mocha": true
     }
   },
-  "repository": "developer-prosenjit/generator-wpautomate",
+  "repository": "itobuztech/generator-wpautomate",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

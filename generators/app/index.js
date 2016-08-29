@@ -73,8 +73,8 @@ module.exports = yeoman.Base.extend({
       name: 'themerepo',
       message: 'What theme do you need?',
       choices: [
-      'Public: Github version', 
-      'Private: Bitbucket version. SSH setup required.'
+      'Github', 
+      'Bitbucket'
       ],
       filter: function (val) {
         return val.toLowerCase();

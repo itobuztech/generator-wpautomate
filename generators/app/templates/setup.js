@@ -9,8 +9,8 @@ var p = require('../package.json');
 var download = require('download');
 var del = require('del');
 var themerepoLocation = 'https://github.com/developer-prosenjit/wpautomate.git';
-var themerepo = <%=themerepo%>;
-if (themerepo=='private') {
+var themerepo = '<%=themerepo%>';
+if (themerepo=='bitbucket') {
   themerepoLocation = 'git@bitbucket.org:itobuztech/wpautomate.git';
 }
 

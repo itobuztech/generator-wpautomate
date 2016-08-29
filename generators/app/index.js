@@ -70,7 +70,7 @@ module.exports = yeoman.Base.extend({
     },
     {
       type: 'list',
-      name: 'theme',
+      name: 'themerepo',
       message: 'What theme do you need?',
       choices: [
       'Public: Github version', 
@@ -195,9 +195,12 @@ module.exports = yeoman.Base.extend({
       this.templatePath('serve.js'),
       this.destinationPath('gulp-tasks/serve.js')
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('setup.js'),
-      this.destinationPath('gulp-tasks/setup.js')
+      this.destinationPath('gulp-tasks/setup.js'),
+      {
+        'themerepo': this.props.themerepo
+      }
     );
     this.fs.copy(
       this.templatePath('styles.js'),

@@ -56,11 +56,6 @@ module.exports = yeoman.Base.extend({
       default: 'localhost'
     },
     {
-      name: 'wpdbChar',
-      message: 'DB CHAR?',
-      default: 'utf8mb4'
-    },
-    {
       name: 'authorName',
       message: 'Your Name?',
       default: 'Yeoman'
@@ -72,6 +67,26 @@ module.exports = yeoman.Base.extend({
       validate: function(str) {
         return str.length > 0;
       }
+    },
+    {
+      type: 'list',
+      name: 'theme',
+      message: 'What theme do you need?',
+      choices: [
+      'Public: Github version', 
+      'Private: Bitbucket version. SSH setup required.'
+      ],
+      filter: function (val) {
+        return val.toLowerCase();
+      }
+    },
+    {
+      name: 'siteUrl',
+      message: 'Site url?',
+      default: 'http://localhost/' + makeGeneratorName(path.basename(process.cwd())),
+      validate: function(str) {
+        return str.length > 0;
+      }
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -79,23 +94,7 @@ module.exports = yeoman.Base.extend({
       this.props = props;
     }.bind(this));
   },
-  envTemplate: function() {
-
-    this.fs.copyTpl(
-      this.templatePath('env.json'),
-      this.destinationPath('gulp-tasks/env.json'),
-      {
-        'dbName': this.props.wpdb,
-        'wpdbUser': this.props.wpdbUser,
-        'wpdbPass': this.props.wpdbPass,
-        'wpdbHost': this.props.wpdbHost,
-        'wpdbChar': this.props.wpdbChar,
-        'authorName': this.props.authorName,
-        'authorEmail': this.props.authorEmail
-      }
-    );
-  },
-
+ 
   writing: function () {
 
     // root files
@@ -213,14 +212,31 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulp-tasks/setup-wp-cli.js.js'),
       {
         'dbName': this.props.wpdb,
-        'wpdbUser': this.props.wpdbUser,
-        'wpdbPass': this.props.wpdbPass,
-        'wpdbHost': this.props.wpdbHost,
-        'wpdbChar': this.props.wpdbChar,
-        'authorName': this.props.authorName,
-        'authorEmail': this.props.authorEmail
+        'dbUser': this.props.wpdbUser,
+        'dbPass': this.props.wpdbPass,
+        'dbHost': this.props.wpdbHost,
+        'siteUrl': this.props.siteUrl,
+        'projectName': this.props.name,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName
       }
     );
+    this.fs.copyTpl(
+      this.templatePath('env.json'),
+      this.destinationPath('gulp-tasks/env.json'),
+      {
+        'dbName': this.props.wpdb,
+        'dbUser': this.props.wpdbUser,
+        'dbPass': this.props.wpdbPass,
+        'dbHost': this.props.wpdbHost,
+        'siteUrl': this.props.siteUrl,
+        'projectName': this.props.name,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName
+      }
+    );
+
+      
   },
 
   install: function () {

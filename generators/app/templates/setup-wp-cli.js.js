@@ -10,11 +10,11 @@ var shell = require('shelljs');
 
 gulp.task('wpcli:install-core', function(){
 	if(shell.exec('wp core download')) {
-			shell.exec('wp core config --dbname=<%=dbName%> --dbuser=<%=wpdbUser%> --dbpass=<%=wpdbPass%> --dbhost=<%=wpdbHost%>');
+			shell.exec('wp core config --dbname=<%=dbName%> --dbuser=<%=dbUser%> --dbpass=<%=dbPass%> --dbhost=<%=dbHost%>');
 			shell.exec('wp db create');
-		  shell.exec('wp core install --url="http://localhost/wpautomate" --title="Wpautomate" --admin_user="prosenjit" --admin_password="pass" --admin_email="prosenjit@itobuz.com" --skip-email');
+		  shell.exec('wp core install --url="<%=siteUrl%>" --title="<%=projectName%>" --admin_user="<%=projectName%>" --admin_password="<%=projectName%>" --admin_email="<%=authorEmail%>"');
 		  shell.exec('gulp themeinstall');
-		  shell.exec('wp theme activate wpautomate');
+		  shell.exec('wp theme activate <%=projectName%>');
 		  shell.exec('wp plugin delete hello');
 			shell.exec('wp plugin delete akismet');
 			shell.exec('wp theme delete twentyfifteen');

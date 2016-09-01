@@ -12,13 +12,13 @@ var del = require('del');
 var themerepoLocation = 'https://github.com/developer-prosenjit/wpautomate.git';
 var themerepo = '<%=themerepo%>';
 if (themerepo=='bitbucket') {
-  themerepoLocation = 'git@bitbucket.org:itobuztech/wpautomate.git';
+  themerepoLocation = 'git@bitbucket.org:itobuztech/wp-automate.git';
 }
 
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
 
-  shell.exec('git clone '+themerepoLocation+' ./wp-content/themes/wpautomate');
+  shell.exec('git clone --depth=1 '+themerepoLocation+' ./wp-content/themes/wpautomate');
   shell.exec('echo "Please setup env. env-example.json located in /gulp-tasks."');
   shell.exec('gulp wp-rp')
   
@@ -84,6 +84,17 @@ gulp.task('rp:copy', function(){
       console.log('change package name.');
   }
 });
+
+gulp.task('rp:gitignore', function(){
+  if (p.name!==config.themename) {
+  return gulp.src('.gitignore')
+  .pipe(g.replace(config.textdomain, p.name))
+  .pipe(gulp.dest(''));
+  }else {
+      console.log('change package name.');
+  }
+});
+
 // old theme delete
 gulp.task('rp:del', function(){
   if (p.name!==config.themename) {
@@ -103,6 +114,7 @@ gulp.task('wp-rp', function(){
       'rp:textdomain',
       'rp:copy',
       'rp:del',
+      'rp:gitignore',
       'rp:tasks'
     );
   }else {

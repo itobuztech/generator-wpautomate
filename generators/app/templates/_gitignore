@@ -28,7 +28,12 @@ env.json
 # Ignore all Themes 
 /wp-content/themes/*
 #exclude 
-!/wp-content/themes/theme-name
+!/wp-content/themes/wpautomate
+
+###########################################
+################# Theme ###################
+###########################################
+
 
 
 ## Sytems temp files 

@@ -1,4 +1,5 @@
 {
+  "imageQuality": "60",
 	"stylesScss" : "wp-content/themes/wpautomate/scss/*.scss",
   "compileStyles" : "wp-content/themes/wpautomate/css/",
   "mainScript": "main",

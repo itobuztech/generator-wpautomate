@@ -9,7 +9,7 @@ gulp.task('imagemin', function () {
     return gulp.src('wp-content/uploads/**/*')
       .pipe(imagemin({
           progressive: true,
-          use : [imageminJpegoptim({progressive: true, max: 90}),imageminOptipng({optimizationLevel: 7})]
+          use : [imageminJpegoptim({progressive: true, max: config.imageQuality}),imageminOptipng({optimizationLevel: 7})]
       }))
-     .pipe(gulp.dest('wp-content/uploads-min'));
+     .pipe(gulp.dest('wp-content/uploads/'));
 });

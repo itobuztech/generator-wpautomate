@@ -7,6 +7,7 @@ var g = require('gulp-load-plugins')();
 var config = require('./config.json');
 var p = require('../package.json');
 var download = require('download');
+var shell = require('shelljs');
 var del = require('del');
 var themerepoLocation = 'https://github.com/developer-prosenjit/wpautomate.git';
 var themerepo = '<%=themerepo%>';
@@ -16,10 +17,12 @@ if (themerepo=='bitbucket') {
 
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
-  return g.git.clone(themerepoLocation, {args: './wp-content/themes/wpautomate'}, function(err) {
-    console.log('Please setup env. env-example.json located in /gulp-tasks.');
-    runSequence('wp-rp');
-  });
+
+  shell.exec('git clone '+themerepoLocation+' ./wp-content/themes/wpautomate');
+  shell.exec('echo "Please setup env. env-example.json located in /gulp-tasks."');
+  shell.exec('gulp wp-rp')
+  
+  
 });
 
 

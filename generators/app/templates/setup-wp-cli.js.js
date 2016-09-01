@@ -20,5 +20,7 @@ gulp.task('wpcli:install-core', function(){
 			shell.exec('wp theme delete twentyfifteen');
 			shell.exec('wp theme delete twentyfourteen');
 			shell.exec('wp theme delete twentysixteen');
+	}else {
+		console.log('Please install wpl cli.')
 	}
 });

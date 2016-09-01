@@ -22,7 +22,7 @@ module.exports = yeoman.Base.extend({
     notifier.notify();
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the  ' + chalk.red('generator-wpautomate') + ' wordpress generator!'
+      'Welcome to the  ' + chalk.red('generator-wp-automate') + ' wordpress generator!'
     ));
 
     var prompts = [{

@@ -151,10 +151,6 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulp-tasks/config.json')
     );
     this.fs.copy(
-      this.templatePath('deploy.js'),
-      this.destinationPath('gulp-tasks/deploy.js')
-    );
-    this.fs.copy(
       this.templatePath('document.md'),
       this.destinationPath('documentation/document.md')
     );

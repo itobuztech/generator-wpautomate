@@ -16,7 +16,7 @@
 
 ## Check system requirement
 ```
-git --version && node -v && bower -v && gulp -v && wp --version && php -v && which mysql
+git --version && node -v && bower -v && gulp -v && wp --version && php -v && which mysql && uname -a
 
 ```
 All dependency need to install and set into system path. 

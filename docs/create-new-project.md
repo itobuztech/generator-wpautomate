@@ -18,7 +18,7 @@
  * Private Repo : git@bitbucket.org:itobuztech/wp-automate.git
 
  ### Setup Process 
- * `git clone --depth {repo url} ./wp-content/themes/wpautomate`
+ * `git clone --depth=1 {repo url} ./wp-content/themes/wpautomate`
  * `gulp wp-rp`
  * `chmod 775 ./sh/setup.sh`
  * `./sh/setup.sh`

@@ -73,7 +73,7 @@ module.exports = yeoman.Base.extend({
       name: 'themerepo',
       message: 'What theme do you need?',
       choices: [
-      'Github', 
+      'Github',
       'Bitbucket'
       ],
       filter: function (val) {
@@ -87,14 +87,29 @@ module.exports = yeoman.Base.extend({
       validate: function(str) {
         return str.length > 0;
       }
+    },
+    {
+      name: 'adminUser',
+      message: 'Admin User name?',
+      default: path.basename(process.cwd()),
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
+      name: 'adminPass',
+      message: 'Admin Password?',
+      default: path.basename(process.cwd()),
+      validate: function(str) {
+        return str.length > 0;
+      }
     }];
-
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
- 
+
   writing: function () {
 
     // root files
@@ -217,7 +232,9 @@ module.exports = yeoman.Base.extend({
         'siteUrl': this.props.siteUrl,
         'projectName': this.props.name,
         'authorEmail': this.props.authorEmail,
-        'authorName': this.props.authorName
+        'authorName': this.props.authorName,
+        'adminUser': this.props.adminUser,
+        'adminPass': this.props.adminPass
       }
     );
     this.fs.copyTpl(
@@ -231,7 +248,9 @@ module.exports = yeoman.Base.extend({
         'siteUrl': this.props.siteUrl,
         'projectName': this.props.name,
         'authorEmail': this.props.authorEmail,
-        'authorName': this.props.authorName
+        'authorName': this.props.authorName,
+        'adminUser': this.props.adminUser,
+        'adminPass': this.props.adminPass
       }
     );
     this.fs.copyTpl(
@@ -249,7 +268,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-      
+
   },
 
   install: function () {

@@ -15,5 +15,7 @@ Then generate your new project:
 ```bash
 yo wp-automate
 ```
-## Feel free to open issues, enhancement, new idea here https://github.com/itobuztech/generator-wpautomate/issues
+## Feel free to open issues here https://github.com/itobuztech/generator-wpautomate/issues
 
+## Roadmap
+https://trello.com/b/gtcbScbv/generator-wp-automate

@@ -15,6 +15,7 @@ if [ -d .git ]; then
   echo 'already git repo';
 else
   git init;
+  git commit -m "init";
 fi;
 
 # Create a submodule for upload dir

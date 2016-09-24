@@ -18,11 +18,15 @@ if (themerepo=='bitbucket') {
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
 
-  shell.exec('git clone --depth=1 '+themerepoLocation+' ./wp-content/themes/wpautomate');
-  shell.exec('echo "Please setup env. env-example.json located in /gulp-tasks."');
-  shell.exec('gulp wp-rp')
-  
-  
+  shell.exec('git clone --depth=1 '+themerepoLocation+' ./wp-content/themes/wptest');
+
+  if (ls('wp-content/themes/wpautomate/').code !==2) {
+     shell.exec('gulp wp-rp');
+     shell.exec('echo "Please setup env. env-example.json located in /gulp-tasks."');
+  }else {
+    console.log('project rename stoped, due to clone error.')
+  }
+
 });
 
 

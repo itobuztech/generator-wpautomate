@@ -1,6 +1,7 @@
 node_modules
 bower_components
 env.json
+.pem
 
 #########################################
 ########## Wordpress core files #########
@@ -16,18 +17,18 @@ env.json
 ##########  Plugins #######################
 ###########################################
 
-# Ignore all plugins 
+# Ignore all plugins
 /wp-content/plugins/*
-#exclude 
+#exclude
 !/wp-content/plugins/plugin-name
 
 
 ###########################################
 ################# Theme ###################
 ###########################################
-# Ignore all Themes 
+# Ignore all Themes
 /wp-content/themes/*
-#exclude 
+#exclude
 !/wp-content/themes/wpautomate
 
 ###########################################
@@ -36,5 +37,5 @@ env.json
 
 
 
-## Sytems temp files 
+## Sytems temp files
 .DS_Store

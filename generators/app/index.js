@@ -240,6 +240,10 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulp-tasks/styles.js')
     );
     this.fs.copy(
+      this.templatePath('readme.md'),
+      this.destinationPath('readme.md')
+    );
+    this.fs.copy(
       this.templatePath('analytics.js'),
       this.destinationPath('gulp-tasks/analytics.js')
     );

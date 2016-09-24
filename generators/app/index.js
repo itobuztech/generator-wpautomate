@@ -69,6 +69,14 @@ module.exports = yeoman.Base.extend({
       }
     },
     {
+      name: 'supportURL',
+      message: 'Support URL?',
+      default: '',
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
       type: 'list',
       name: 'themerepo',
       message: 'What theme do you need?',
@@ -111,7 +119,13 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-
+    if(this.props.themerepo=='github'){
+      var scssPath = 'sass';
+      var cssPath = '';
+    }else {
+      var scssPath = 'scss';
+      var cssPath = 'css/';
+    }
     // root files
     this.fs.copyTpl(
       this.templatePath('_bower.json'),
@@ -161,9 +175,17 @@ module.exports = yeoman.Base.extend({
       this.templatePath('cmb2.js'),
       this.destinationPath('gulp-tasks/cmb2.js')
     );
-    this.fs.copy(
+
+    this.fs.copyTpl(
       this.templatePath('config.json'),
-      this.destinationPath('gulp-tasks/config.json')
+      this.destinationPath('gulp-tasks/config.json'),
+      {
+        'scssPath': scssPath,
+        'cssPath': cssPath,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName,
+        'supportURL': this.props.supportURL
+      }
     );
     this.fs.copy(
       this.templatePath('document.md'),

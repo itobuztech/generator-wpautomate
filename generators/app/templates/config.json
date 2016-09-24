@@ -1,7 +1,7 @@
 {
   "imageQuality": "60",
-	"stylesScss" : "wp-content/themes/wpautomate/scss/*.scss",
-  "compileStyles" : "wp-content/themes/wpautomate/css/",
+	"stylesScss" : "wp-content/themes/wpautomate/<%= scssPath %>/*.scss",
+  "compileStyles" : "wp-content/themes/wpautomate/<%= cssPath %>",
   "mainScript": "main",
   "vendorScript": "vendor",
   "scripts" : "wp-content/themes/wpautomate/js/",
@@ -9,7 +9,7 @@
   "themename" : "wpautomate",
   "textdomain": "wpautomate",
   "packageName": "wpautomate",
-  "authorName" : "0effortTheme",
-  "authorEmail" : "0effortthmes@itobuz.com",
-  "suopportUrl" : "http://0effortthemes.com/support"
+  "authorName" : "<%=authorName%>",
+  "authorEmail" : "<%=authorEmail%>",
+  "suopportUrl" : "<%=supportURL%>"
 }

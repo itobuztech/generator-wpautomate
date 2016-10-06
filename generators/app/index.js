@@ -111,6 +111,12 @@ module.exports = yeoman.Base.extend({
       validate: function(str) {
         return str.length > 0;
       }
+    },
+    {
+      type: 'confirm',
+      name: 'testData',
+      message: 'Install test data?',
+      default: true
     }];
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
@@ -175,7 +181,6 @@ module.exports = yeoman.Base.extend({
       this.templatePath('cmb2.js'),
       this.destinationPath('gulp-tasks/cmb2.js')
     );
-
     this.fs.copyTpl(
       this.templatePath('config.json'),
       this.destinationPath('gulp-tasks/config.json'),
@@ -249,19 +254,11 @@ module.exports = yeoman.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('setup-wp-cli.js.js'),
-      this.destinationPath('gulp-tasks/setup-wp-cli.js.js'),
-      {
-        'dbName': this.props.wpdb,
-        'dbUser': this.props.wpdbUser,
-        'dbPass': this.props.wpdbPass,
-        'dbHost': this.props.wpdbHost,
-        'siteUrl': this.props.siteUrl,
-        'projectName': this.props.name,
-        'authorEmail': this.props.authorEmail,
-        'authorName': this.props.authorName,
-        'adminUser': this.props.adminUser,
-        'adminPass': this.props.adminPass
-      }
+      this.destinationPath('gulp-tasks/setup-wp-cli.js.js')
+    );
+    this.fs.copy(
+      this.templatePath('wptest.xml'),
+      this.destinationPath('sh/wptest.xml')
     );
     this.fs.copyTpl(
       this.templatePath('setup.sh'),
@@ -276,7 +273,8 @@ module.exports = yeoman.Base.extend({
         'authorEmail': this.props.authorEmail,
         'authorName': this.props.authorName,
         'adminUser': this.props.adminUser,
-        'adminPass': this.props.adminPass
+        'adminPass': this.props.adminPass,
+        'testData': this.props.testData
       }
     );
     this.fs.copyTpl(

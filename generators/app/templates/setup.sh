@@ -1,6 +1,8 @@
 #!/bin/sh
+
 wp core download
 wp core config --dbname=<%=dbName%> --dbuser=<%=dbUser%> --dbpass=<%=dbPass%> --dbhost=<%=dbHost%>
+wp db drop
 wp db create
 wp core install --url="<%=siteUrl%>" --title="<%=projectName%>" --admin_user="<%=adminUser%>" --admin_password="<%=adminPass%>" --admin_email="<%=authorEmail%>"
 wp theme activate <%=projectName%>
@@ -9,8 +11,14 @@ wp plugin delete akismet
 wp theme delete twentyfifteen
 wp theme delete twentyfourteen
 wp theme delete twentysixteen
+wp plugin install wordpress-importer
+wp plugin activate wordpress-importer
+
+#Install demo data
+wp import ./sh/wptest.xml --authors=create
 
 # Create a git repo if blank
+# init all files with commit msg
 if [ -d .git ]; then
   echo 'already git repo';
 else

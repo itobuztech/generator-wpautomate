@@ -291,7 +291,17 @@ module.exports = yeoman.Base.extend({
         'authorName': this.props.authorName
       }
     );
-
+    this.fs.copyTpl(
+      this.templatePath('package.sh'),
+      this.destinationPath('sh/package.sh'),{
+        'projectName': this.props.name,
+        'testData': this.props.testData
+      }
+    );
+    this.fs.copy(
+      this.templatePath('sidebar-export.php'),
+      this.destinationPath('sh/sidebar-export.php')
+    );
 
   },
 

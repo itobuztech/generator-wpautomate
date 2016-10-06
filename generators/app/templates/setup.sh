@@ -14,9 +14,10 @@ wp theme delete twentysixteen
 wp plugin install wordpress-importer
 wp plugin activate wordpress-importer
 
+<% if (testData)  { %>
 #Install demo data
 wp import ./sh/wptest.xml --authors=create
-
+<% } %>
 # Create a git repo if blank
 # init all files with commit msg
 if [ -d .git ]; then

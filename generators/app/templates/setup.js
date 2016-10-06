@@ -96,7 +96,7 @@ gulp.task('rp:gitignore', function(){
   .pipe(g.replace(config.textdomain, p.name))
   .pipe(gulp.dest(''));
   }else {
-      console.log('change package name.');
+    console.log('change package name.');
   }
 });
 

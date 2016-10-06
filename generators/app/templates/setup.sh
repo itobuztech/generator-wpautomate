@@ -15,6 +15,7 @@ if [ -d .git ]; then
   echo 'already git repo';
 else
   git init;
+  git add .
   git commit -m "init";
 fi;
 

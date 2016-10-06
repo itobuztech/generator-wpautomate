@@ -63,7 +63,7 @@ module.exports = yeoman.Base.extend({
     {
       name: 'authorEmail',
       message: 'Your Email?',
-      default: '',
+      default: 'test@test.com',
       validate: function(str) {
         return str.length > 0;
       }
@@ -71,7 +71,7 @@ module.exports = yeoman.Base.extend({
     {
       name: 'supportURL',
       message: 'Support URL?',
-      default: '',
+      default: 'http://0effortthemes.com/support/',
       validate: function(str) {
         return str.length > 0;
       }

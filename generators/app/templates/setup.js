@@ -2,11 +2,9 @@
 /* global console */
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
-var request = require('request');
 var g = require('gulp-load-plugins')();
 var config = require('./config.json');
 var p = require('../package.json');
-var download = require('download');
 var shell = require('shelljs');
 require('shelljs/global');
 var del = require('del');

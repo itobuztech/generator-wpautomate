@@ -2,7 +2,7 @@
 
 wp core download
 wp core config --dbname=<%=dbName%> --dbuser=<%=dbUser%> --dbpass=<%=dbPass%> --dbhost=<%=dbHost%>
-wp db drop
+wp db drop --yes
 wp db create
 wp core install --url="<%=siteUrl%>" --title="<%=projectName%>" --admin_user="<%=adminUser%>" --admin_password="<%=adminPass%>" --admin_email="<%=authorEmail%>"
 wp theme activate <%=projectName%>

@@ -19,6 +19,9 @@ yo wp-automate
 
 https://github.com/itobuztech/generator-wpautomate/tree/master/docs
 
+## Tutorials 
+[For ubuntu users](https://gist.github.com/developer-prosenjit/73ebeff1952c002216d8e4be0b9e1fbe)
+
 ## Feel free to open issues here 
 
 https://github.com/itobuztech/generator-wpautomate/issues

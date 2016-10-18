@@ -125,12 +125,13 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    if(this.props.themerepo=='github'){
-      var scssPath = 'sass';
-      var cssPath = '';
+    var scssPath, cssPath;
+    if(this.props.themerepo==='github'){
+      scssPath = 'sass';
+      cssPath = '';
     }else {
-      var scssPath = 'scss';
-      var cssPath = 'css/';
+      scssPath = 'scss';
+      cssPath = 'css/';
     }
     // root files
     this.fs.copyTpl(

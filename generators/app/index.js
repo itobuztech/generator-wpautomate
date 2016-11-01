@@ -279,6 +279,23 @@ module.exports = yeoman.Base.extend({
       }
     );
     this.fs.copyTpl(
+      this.templatePath('reset.sh'),
+      this.destinationPath('sh/reset.sh'),
+      {
+        'dbName': this.props.wpdb,
+        'dbUser': this.props.wpdbUser,
+        'dbPass': this.props.wpdbPass,
+        'dbHost': this.props.wpdbHost,
+        'siteUrl': this.props.siteUrl,
+        'projectName': this.props.name,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName,
+        'adminUser': this.props.adminUser,
+        'adminPass': this.props.adminPass,
+        'testData': this.props.testData
+      }
+    );
+    this.fs.copyTpl(
       this.templatePath('env.json'),
       this.destinationPath('gulp-tasks/env.json'),
       {

@@ -1,11 +1,11 @@
 {
   "name": "generator-wp-automate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Wordpress project generators and usefull gulp tasks",
   "homepage": "",
   "author": {
-    "name": "Prosenjit",
-    "email": "developer.prosenjit@gmail.com",
+    "name": "Itobuz Tech Private LTD",
+    "email": "prosenjit@itobuz.com",
     "url": ""
   },
   "files": [

@@ -10,10 +10,14 @@ wp export --dir=../main/demo-content --post_type="post" --filename_format=<%=pro
 wp export --dir=../main/demo-content --post_type="pages" --filename_format=<%=projectName%>-pages.xml
 wp export --dir=../main/demo-content  --filename_format=<%=projectName%>-all-content.xml
 
+
+<% if (themerepo==='bitbucket')  { %>
 ## Demo data 1
 wp option get theme_options --format=json  > ../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/theme-options.txt
 wp export --dir=../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/  --filename_format=content.xml
 wp eval-file ../sh/sidebar-export.php  > ../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/widgets.json
+<% } %>
+cd ../
 
 ### Make sure you update own plugins when you packaged
 #cd ./wp-content/plugins/
@@ -25,6 +29,7 @@ wp eval-file ../sh/sidebar-export.php  > ../wp-content/themes/<%=projectName%>/a
 gulp build
 
 ### Create theme compressed
+mkdir main
 cd ./main/ && mkdir Theme-file
 cd ../
 cd ./wp-content/themes/
@@ -33,6 +38,9 @@ mv wpautomate.zip ../../main/Theme-file/wpautomate.zip
 cd ../../
 
 ## Creating documentation
+cd ./main/
+mkdir documentation
+cd ../
 zip -r documentation.zip  documentation/ -x "*DS_Store*"
 mv documentation.zip main/documentation/documentation.zip
 

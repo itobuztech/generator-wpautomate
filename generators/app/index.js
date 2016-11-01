@@ -313,7 +313,8 @@ module.exports = yeoman.Base.extend({
       this.templatePath('package.sh'),
       this.destinationPath('sh/package.sh'),{
         'projectName': this.props.name,
-        'testData': this.props.testData
+        'testData': this.props.testData,
+        'themerepo': this.props.themerepo
       }
     );
     this.fs.copy(

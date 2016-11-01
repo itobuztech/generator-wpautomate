@@ -1,5 +1,5 @@
 'use strict';
-/* global console */
+/* global console, ls */
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var g = require('gulp-load-plugins')();
@@ -10,7 +10,7 @@ require('shelljs/global');
 var del = require('del');
 var themerepoLocation = 'https://github.com/developer-prosenjit/wpautomate.git';
 var themerepo = '<%=themerepo%>';
-if (themerepo=='bitbucket') {
+if (themerepo==='bitbucket') {
   themerepoLocation = 'git@bitbucket.org:itobuztech/wp-automate.git';
 }
 
@@ -23,7 +23,7 @@ gulp.task('themeinstall', function() {
      shell.exec('gulp wp-rp');
      shell.exec('echo "Please setup env. env-example.json located in /gulp-tasks."');
   }else {
-    console.log('project rename stoped, due to clone error.')
+    console.log('project rename stoped, due to clone error.');
   }
 
 });
@@ -62,6 +62,18 @@ gulp.task('rp:tasks', function(){
       .pipe(g.replace(config.themename, p.name))
       .pipe(g.replace(config.packageName, p.name))
       .pipe(gulp.dest('./gulp-tasks'));
+  }else {
+    console.log('change package name.');
+  }
+
+});
+// replace string from shell script
+gulp.task('rp:sh', function(){
+  if (p.name!==config.themename) {
+    return gulp.src(['./sh/*.*'])
+      .pipe(g.replace(config.themename, p.name))
+      .pipe(g.replace(config.packageName, p.name))
+      .pipe(gulp.dest('./sh'));
   }else {
     console.log('change package name.');
   }
@@ -118,7 +130,8 @@ gulp.task('wp-rp', function(){
       'rp:copy',
       'rp:del',
       'rp:gitignore',
-      'rp:tasks'
+      'rp:tasks',
+      'rp:sh'
     );
   }else {
     console.log('If you want to change project name, change package name in package.json');

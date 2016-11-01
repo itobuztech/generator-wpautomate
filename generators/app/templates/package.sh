@@ -16,10 +16,10 @@ wp export --dir=../wp-content/themes/<%=projectName%>/admin/redux-extensions/ext
 wp eval-file ../sh/sidebar-export.php  > ../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/widgets.json
 
 ### Make sure you update own plugins when you packaged
-cd ./wp-content/plugins/
-zip -r envato-wordpress-toolkit-master.zip  envato-wordpress-toolkit-master/ -x "*DS_Store*"
-mv envato-wordpress-toolkit-master.zip ../themes/<%=projectName%>/inc/plugin-activation/plugins/envato-wordpress-toolkit-master.zip
-cd ../../
+#cd ./wp-content/plugins/
+#zip -r envato-wordpress-toolkit-master.zip  envato-wordpress-toolkit-master/ -x "*DS_Store*"
+#mv envato-wordpress-toolkit-master.zip ../themes/<%=projectName%>/inc/plugin-activation/plugins/envato-wordpress-toolkit-master.zip
+#cd ../../
 
 ## Build assets
 gulp build

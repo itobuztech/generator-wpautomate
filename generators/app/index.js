@@ -255,7 +255,10 @@ module.exports = yeoman.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('setup-wp-cli.js.js'),
-      this.destinationPath('gulp-tasks/setup-wp-cli.js.js')
+      this.destinationPath('gulp-tasks/setup-wp-cli.js.js'),
+      {
+        'projectName': this.props.name
+      }
     );
     this.fs.copy(
       this.templatePath('wptest.xml'),

@@ -36,9 +36,9 @@
     "jshint-stylish": "^2.1.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
-    "vinyl-ftp": "^0.5.0",
-    "universal-analytics": "0.4.6",    
+    "universal-analytics": "0.4.6",
     "gulp-exec": "2.1.2",
-    "shelljs": "^0.7.1"
+    "shelljs": "^0.7.1",
+    "inquirer": "^1.2.2"
   }
 }

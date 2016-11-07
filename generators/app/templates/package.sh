@@ -28,6 +28,9 @@ cd ../
 ## Build assets
 gulp build
 
+## Create Versions
+gulp ver
+
 ### Create theme compressed
 mkdir main
 cd ./main/ && mkdir Theme-file

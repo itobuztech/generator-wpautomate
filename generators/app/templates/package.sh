@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # Create main
-cd ./ && mkdir main
+mkdir main && mkdir package
 
 
 ### Export demo data
 cd ./main/ && mkdir demo-content
 wp export --dir=../main/demo-content --post_type="post" --filename_format=<%=projectName%>-post.xml
-wp export --dir=../main/demo-content --post_type="pages" --filename_format=<%=projectName%>-pages.xml
+wp export --dir=../main/demo-content --post_type="page" --filename_format=<%=projectName%>-pages.xml
 wp export --dir=../main/demo-content  --filename_format=<%=projectName%>-all-content.xml
 
 
@@ -29,6 +29,8 @@ cd ../
 gulp build
 
 ## Create Versions
+# This will update theme stylesheet version
+# Also update package.json version
 gulp ver
 
 ### Create theme compressed
@@ -40,6 +42,14 @@ zip -r wpautomate.zip wpautomate/ -x "*DS_Store*"
 mv wpautomate.zip ../../main/Theme-file/wpautomate.zip
 cd ../../
 
+# Create child theme
+wp scaffold child-theme wpautomate-child --parent_theme=wpautomate --author=<%=authorName%> --force
+#--author_uri=<%=authorName%> --theme_uri=<%=authorName%>
+cd ./wp-content/themes/
+zip -r wpautomate-child.zip wpautomate-child/ -x "*DS_Store*"
+mv wpautomate-child.zip ../../main/Theme-file/wpautomate-child.zip
+cd ../../
+
 ## Creating documentation
 cd ./main/
 mkdir documentation
@@ -48,6 +58,7 @@ zip -r documentation.zip  documentation/ -x "*DS_Store*"
 mv documentation.zip main/documentation/documentation.zip
 
 ## Creating main package
-
 zip -r main.zip main/ -x "*DS_Store*"
 
+# Move created package to new version dir
+gulp ver:package

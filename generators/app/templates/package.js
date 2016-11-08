@@ -47,3 +47,8 @@ gulp.task('ver:theme', function() {
     .pipe(g.replace('Version: '+p.version, 'Version: '+latestVersion))
     .pipe(gulp.dest(config.themefolder));
 });
+
+gulp.task('ver:package', function() {
+  return gulp.src('./main.zip')
+        .pipe(gulp.dest('./package/pack-'+latestVersion));
+});

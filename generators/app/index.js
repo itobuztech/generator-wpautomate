@@ -213,18 +213,9 @@ module.exports = yeoman.Base.extend({
       this.templatePath('package.js'),
       this.destinationPath('gulp-tasks/package.js')
     );
-
-    this.fs.copy(
-      this.templatePath('post-merge.txt'),
-      this.destinationPath('gulp-tasks/post-merge.txt')
-    );
     this.fs.copy(
       this.templatePath('pot.js'),
       this.destinationPath('gulp-tasks/pot.js')
-    );
-    this.fs.copy(
-      this.templatePath('pre-commit.txt'),
-      this.destinationPath('gulp-tasks/pre-commit.txt')
     );
     this.fs.copy(
       this.templatePath('script.js'),
@@ -263,6 +254,10 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('wptest.xml'),
       this.destinationPath('sh/wptest.xml')
+    );
+    this.fs.copy(
+      this.templatePath('.htaccess'),
+      this.destinationPath('db/.htaccess')
     );
     this.fs.copyTpl(
       this.templatePath('setup.sh'),
@@ -317,7 +312,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('sh/package.sh'),{
         'projectName': this.props.name,
         'testData': this.props.testData,
-        'themerepo': this.props.themerepo
+        'themerepo': this.props.themerepo,
+        'authorName': this.props.authorName
       }
     );
     this.fs.copy(

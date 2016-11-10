@@ -6,7 +6,8 @@ wp core download
 #Checking ENV DBUSER and DBPASS exist
 if [ -f $DBUSER ] &&  [ -f  $DBPASS ]; then
   echo 'ENV Properly not configured for DB details';
-  echo 'Visit this url for how you configure: https://goo.gl/uPyf3q'
+  echo 'Visit this url for how you configure: https://goo.gl/uPyf3q';
+  ehco 'After setup just run ./sh/setup.sh';
   exit 1;
 else
   echo '--------------------';

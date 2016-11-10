@@ -7,6 +7,7 @@ wp core download
 if [ -f $DBUSER ] &&  [ -f  $DBPASS ]; then
   echo 'ENV Properly not configured for DB details';
   echo 'Visit this url for how you configure: https://goo.gl/uPyf3q'
+  ehco 'After setup just run ./sh/setup-remote.sh';
   exit 1;
 else
   echo '--------------------';

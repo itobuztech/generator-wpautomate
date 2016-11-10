@@ -41,16 +41,6 @@ module.exports = yeoman.Base.extend({
       }
     },
     {
-      name: 'wpdbUser',
-      message: 'DB user name?',
-      default: 'root'
-    },
-    {
-      name: 'wpdbPass',
-      message: 'DB Password?',
-      default: ''
-    },
-    {
       name: 'wpdbHost',
       message: 'DB Host name?',
       default: 'localhost'
@@ -146,7 +136,6 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    console.log(this.props);
     var scssPath, cssPath;
     if(this.props.themerepo==='github'){
       scssPath = 'sass';
@@ -286,8 +275,6 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('sh/setup.sh'),
       {
         'dbName': this.props.wpdb,
-        'dbUser': this.props.wpdbUser,
-        'dbPass': this.props.wpdbPass,
         'dbHost': this.props.wpdbHost,
         'siteUrl': this.props.siteUrl,
         'projectName': this.props.name,
@@ -299,12 +286,26 @@ module.exports = yeoman.Base.extend({
       }
     );
     this.fs.copyTpl(
+      this.templatePath('setup-remote.sh'),
+      this.destinationPath('sh/setup-remote.sh'),
+      {
+        'dbName': this.props.wpdb,
+        'dbHost': this.props.wpdbHost,
+        'siteUrl': this.props.siteUrl,
+        'projectName': this.props.name,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName,
+        'adminUser': this.props.adminUser,
+        'adminPass': this.props.adminPass,
+        'testData': this.props.testData
+      }
+    );
+
+    this.fs.copyTpl(
       this.templatePath('reset.sh'),
       this.destinationPath('sh/reset.sh'),
       {
         'dbName': this.props.wpdb,
-        'dbUser': this.props.wpdbUser,
-        'dbPass': this.props.wpdbPass,
         'dbHost': this.props.wpdbHost,
         'siteUrl': this.props.siteUrl,
         'projectName': this.props.name,
@@ -320,8 +321,6 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulp-tasks/env.json'),
       {
         'dbName': this.props.wpdb,
-        'dbUser': this.props.wpdbUser,
-        'dbPass': this.props.wpdbPass,
         'dbHost': this.props.wpdbHost,
         'siteUrl': this.props.siteUrl,
         'projectName': this.props.name,

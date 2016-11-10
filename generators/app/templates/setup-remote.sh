@@ -31,22 +31,11 @@ wp theme delete twentysixteen
 wp plugin install wordpress-importer
 wp plugin activate wordpress-importer
 
-<% if (testData)  { %>
-#Install demo data
-wp import ./sh/wptest.xml --authors=create
-<% } %>
-# Create a git repo if blank
-# init all files with commit msg
-if [ -d .git ]; then
-  echo 'already git repo';
-else
-  git init;
-  git add .
-  git commit -m "init";
-fi;
+# Restore DB
+wp db  import db/db.txt
 
 # Create a submodule for upload dir
 
 echo '------------------------';
 echo 'Project setup completed.';
-echo '------------------------';
+echo

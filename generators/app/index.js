@@ -78,6 +78,27 @@ module.exports = yeoman.Base.extend({
     },
     {
       type: 'list',
+      name: 'pTypes',
+      message: 'Project types',
+      choices: [{
+        name: 'New project',
+        value: 'new'
+      },
+      {
+        name: 'Update project',
+        value: 'update'
+      },
+      {
+        name: 'Use it in old project',
+        value: 'exist'
+      }
+      ],
+      filter: function (val) {
+        return val.toLowerCase();
+      }
+    },
+    {
+      type: 'list',
       name: 'themerepo',
       message: 'What theme do you need?',
       choices: [
@@ -125,6 +146,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    console.log(this.props);
     var scssPath, cssPath;
     if(this.props.themerepo==='github'){
       scssPath = 'sass';

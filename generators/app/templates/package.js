@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var g = require('gulp-load-plugins')();
 var requireDir = require('require-dir');
+var shell = require('shelljs');
 var config = require('./config.json');
 var p = require('../package.json');
 var del = require('del');
@@ -51,4 +52,8 @@ gulp.task('ver:theme', function() {
 gulp.task('ver:package', function() {
   return gulp.src('./main.zip')
         .pipe(gulp.dest('./package/pack-'+latestVersion));
+});
+gulp.task('ver:tags', function() {
+  shell.exec('git tag -a '+latestVersion+' -m '+latestVersion);
+  shell.exec('git push origin --tags');
 });

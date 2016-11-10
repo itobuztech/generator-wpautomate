@@ -62,3 +62,4 @@ zip -r main.zip main/ -x "*DS_Store*"
 
 # Move created package to new version dir
 gulp ver:package
+gulp ver:tags

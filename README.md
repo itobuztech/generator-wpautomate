@@ -26,5 +26,5 @@ https://github.com/itobuztech/generator-wpautomate/tree/master/docs
 
 https://github.com/itobuztech/generator-wpautomate/issues
 
-## Roadmap
-https://trello.com/b/gtcbScbv/generator-wp-automate
+## Milestones
+https://github.com/itobuztech/generator-wpautomate/milestones

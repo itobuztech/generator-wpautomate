@@ -54,6 +54,7 @@ gulp.task('ver:package', function() {
         .pipe(gulp.dest('./package/pack-'+latestVersion));
 });
 gulp.task('ver:tags', function() {
+  shell.exec('rm -rf main.zip');
   shell.exec('git tag -a '+latestVersion+' -m '+latestVersion);
   shell.exec('git push origin --tags');
 });

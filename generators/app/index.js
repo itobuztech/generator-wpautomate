@@ -270,6 +270,10 @@ module.exports = yeoman.Base.extend({
       this.templatePath('.htaccess'),
       this.destinationPath('db/.htaccess')
     );
+    this.fs.copy(
+      this.templatePath('.htaccess'),
+      this.destinationPath('sh/.htaccess')
+    );
     this.fs.copyTpl(
       this.templatePath('setup.sh'),
       this.destinationPath('sh/setup.sh'),
@@ -340,6 +344,11 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('sidebar-export.php'),
       this.destinationPath('sh/sidebar-export.php')
+    );
+
+    this.fs.copy(
+      this.templatePath('deploy.php'),
+      this.destinationPath('deploy/deploy.php')
     );
 
   },

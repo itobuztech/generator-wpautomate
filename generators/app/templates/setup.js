@@ -141,7 +141,7 @@ gulp.task('wp-rp', function(){
 
 gulp.task('destroy', function(){
   return del([
-    'wp-content', 'wp-admin', 'wp-includes', 'sh',
+    'wp-content', 'wp-admin', 'wp-includes', 'sh', 'package', 'main', 'db', 'deploy',
     'documentation', 'gulp-tasks', '.*', '*.*',
     '!.git', '!node_modules', '!bower_components'
     ])

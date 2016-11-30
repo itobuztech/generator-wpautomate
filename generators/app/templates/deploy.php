@@ -38,7 +38,7 @@
 <body style="background-color: #000000; color: #FFFFFF; font-weight: bold; padding: 0 10px;">
 <pre>
 <h1>Git deployment script.</h1>
-<h6><a href="https://gist.github.com/808c74fc4178b4c497a14756ca176498">Setup instruction.</a></h6>
+<h4><a href="https://gist.github.com/808c74fc4178b4c497a14756ca176498">Setup instruction.</a></h4>
 
 <?php echo $output; ?>
 </pre>

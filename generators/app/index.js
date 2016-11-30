@@ -124,6 +124,22 @@ module.exports = yeoman.Base.extend({
       }
     },
     {
+      name: 'repoUrl',
+      message: 'repository url?',
+      default: 'git@bitbucket.org:{{username}}/'+makeGeneratorName(path.basename(process.cwd()))+'.git',
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
+      name: 'subrepoUploads',
+      message: 'Submodule for uploadrepository url?',
+      default: 'git@bitbucket.org:{{username}}/'+makeGeneratorName(path.basename(process.cwd()))+'-uploads.git',
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
       type: 'confirm',
       name: 'testData',
       message: 'Install test data?',
@@ -286,7 +302,9 @@ module.exports = yeoman.Base.extend({
         'authorName': this.props.authorName,
         'adminUser': this.props.adminUser,
         'adminPass': this.props.adminPass,
-        'testData': this.props.testData
+        'testData': this.props.testData,
+        'repoUrl': this.props.repoUrl,
+        'subrepoUploads': this.props.subrepoUploads
       }
     );
     this.fs.copyTpl(

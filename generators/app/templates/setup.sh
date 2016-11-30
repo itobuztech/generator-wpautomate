@@ -36,17 +36,39 @@ wp plugin activate wordpress-importer
 #Install demo data
 wp import ./sh/wptest.xml --authors=create
 <% } %>
+
+# Create a submodule for upload dir
+cd wp-content/uploads/;
+
+  if [ -d .git ]; then
+    echo 'uploads dir already git repo';
+  else
+    git init;
+    git add .;
+    git commit -m "init";
+    git remote add origin <%=subrepoUploads%>;
+  fi;
+  # go back to root
+  cd ../../;
+
 # Create a git repo if blank
 # init all files with commit msg
 if [ -d .git ]; then
-  echo 'already git repo';
+ echo 'already git repo';
+  echo 'Try removing wp-content/uploads if you want to pull uploads.';
+  echo 'run `rm -rf wp-content/uploads';
+  echo 'then `git submodule init`';
+  echo 'then `git submodule update`';
 else
   git init;
+  git submodule add <%=subrepoUploads%> wp-content/uploads/
+  git remote add origin <%=repoUrl%>;
   git add .
   git commit -m "init";
 fi;
 
-# Create a submodule for upload dir
+
+
 
 echo '------------------------';
 echo 'Project setup completed.';

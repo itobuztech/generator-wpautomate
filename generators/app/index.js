@@ -66,27 +66,7 @@ module.exports = yeoman.Base.extend({
         return str.length > 0;
       }
     },
-    {
-      type: 'list',
-      name: 'pTypes',
-      message: 'Project types',
-      choices: [{
-        name: 'New project',
-        value: 'new'
-      },
-      {
-        name: 'Update project',
-        value: 'update'
-      },
-      {
-        name: 'Use it in old project',
-        value: 'exist'
-      }
-      ],
-      filter: function (val) {
-        return val.toLowerCase();
-      }
-    },
+
     {
       type: 'list',
       name: 'themerepo',
@@ -142,6 +122,12 @@ module.exports = yeoman.Base.extend({
     {
       type: 'confirm',
       name: 'testData',
+      message: 'Install test data?',
+      default: true
+    },
+    {
+      type: 'confirm',
+      name: 'childTheme',
       message: 'Install test data?',
       default: true
     }];
@@ -303,6 +289,7 @@ module.exports = yeoman.Base.extend({
         'adminUser': this.props.adminUser,
         'adminPass': this.props.adminPass,
         'testData': this.props.testData,
+        'childTheme': this.props.childTheme,
         'repoUrl': this.props.repoUrl,
         'subrepoUploads': this.props.subrepoUploads
       }
@@ -355,6 +342,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('sh/package.sh'),{
         'projectName': this.props.name,
         'testData': this.props.testData,
+        'childTheme': this.props.childTheme,
         'themerepo': this.props.themerepo,
         'authorName': this.props.authorName
       }

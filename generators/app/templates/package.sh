@@ -42,12 +42,12 @@ zip -r wpautomate.zip wpautomate/ -x "*DS_Store*"
 mv wpautomate.zip ../../main/Theme-file/wpautomate.zip
 cd ../../
 
-# Create child theme
-wp scaffold child-theme wpautomate-child --parent_theme=wpautomate --author=<%=authorName%> --force
-#--author_uri=<%=authorName%> --theme_uri=<%=authorName%>
+
 cd ./wp-content/themes/
+<% if (childTheme)  { %>
 zip -r wpautomate-child.zip wpautomate-child/ -x "*DS_Store*"
 mv wpautomate-child.zip ../../main/Theme-file/wpautomate-child.zip
+<% } %>
 cd ../../
 
 ## Creating documentation

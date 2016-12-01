@@ -31,7 +31,9 @@ wp theme delete twentyfourteen
 wp theme delete twentysixteen
 wp plugin install wordpress-importer
 wp plugin activate wordpress-importer
-
+<% if (childTheme)  { %>
+wp scaffold child-theme <%=projectName%>-child --parent_theme=<%=projectName%>
+<% } %>
 <% if (testData)  { %>
 #Install demo data
 wp import ./sh/wptest.xml --authors=create

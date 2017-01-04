@@ -29,6 +29,7 @@ wp plugin delete akismet
 wp theme delete twentyfifteen
 wp theme delete twentyfourteen
 wp theme delete twentysixteen
+wp theme delete twentyseventeen
 wp plugin install wordpress-importer
 wp plugin activate wordpress-importer
 <% if (childTheme)  { %>
@@ -47,7 +48,6 @@ cd wp-content/uploads/;
   else
     git init;
     git add .;
-    git commit -m "init";
     git remote add origin <%=subrepoUploads%>;
   fi;
   # go back to root
@@ -61,12 +61,12 @@ if [ -d .git ]; then
   echo 'run `rm -rf wp-content/uploads';
   echo 'then `git submodule init`';
   echo 'then `git submodule update`';
+  echo 'then `wp db import db/db.txt';
 else
   git init;
   git submodule add <%=subrepoUploads%> wp-content/uploads/
   git remote add origin <%=repoUrl%>;
   git add .
-  git commit -m "init";
 fi;
 
 
@@ -74,4 +74,5 @@ fi;
 
 echo '------------------------';
 echo 'Project setup completed.';
+echo 'Site URL: <%=siteUrl%>';
 echo '------------------------';

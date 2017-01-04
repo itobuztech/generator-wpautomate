@@ -10,6 +10,14 @@ npm install -g yo
 npm install -g generator-wp-automate
 ```
 
+If you want to use development version
+
+```bash
+git clone https://github.com/itobuztech/generator-wpautomate.git
+cd generator-wpautomate
+npm link
+```
+
 Then generate your new project:
 
 ```bash

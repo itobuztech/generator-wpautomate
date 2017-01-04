@@ -128,7 +128,7 @@ module.exports = yeoman.Base.extend({
     {
       type: 'confirm',
       name: 'childTheme',
-      message: 'Install test data?',
+      message: 'Create child theme?',
       default: true
     }];
     return this.prompt(prompts).then(function (props) {

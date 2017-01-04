@@ -49,6 +49,10 @@ cd wp-content/uploads/;
     git init;
     git add .;
     git remote add origin <%=subrepoUploads%>;
+    echo '------------------------';
+    echo 'First commit wp-content/uploads';
+    echo 'Then commit main repo, this is for git submodule.';
+    echo '------------------------';
   fi;
   # go back to root
   cd ../../;

@@ -46,13 +46,16 @@ cd wp-content/uploads/;
   if [ -d .git ]; then
     echo 'uploads dir already git repo';
   else
+    touch .gitkeep;
     git init;
     git add .;
+    git commit -m "init";
     git remote add origin <%=subrepoUploads%>;
     echo '------------------------';
     echo 'First commit wp-content/uploads';
     echo 'Then commit main repo, this is for git submodule.';
     echo '------------------------';
+    sleep 30;
   fi;
   # go back to root
   cd ../../;
@@ -66,6 +69,7 @@ if [ -d .git ]; then
   echo 'then `git submodule init`';
   echo 'then `git submodule update`';
   echo 'then `wp db import db/db.txt';
+  sleep 30;
 else
   git init;
   git submodule add <%=subrepoUploads%> wp-content/uploads/

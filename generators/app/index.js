@@ -130,6 +130,30 @@ module.exports = yeoman.Base.extend({
       name: 'childTheme',
       message: 'Create child theme?',
       default: true
+    },
+    {
+      name: 'hostDeployName',
+      message: 'Enter deploy host name.',
+      default: '',
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
+      name: 'hostDeployPath',
+      message: 'Enter full path for auto deploy. [example /var/www/html/projectname]',
+      default: '',
+      validate: function(str) {
+        return str.length > 0;
+      }
+    },
+    {
+      name: 'hostDeployUser',
+      message: 'Enter deploy host user name',
+      default: '',
+      validate: function(str) {
+        return str.length > 0;
+      }
     }];
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
@@ -293,6 +317,31 @@ module.exports = yeoman.Base.extend({
         'repoUrl': this.props.repoUrl,
         'subrepoUploads': this.props.subrepoUploads
       }
+    );
+    this.fs.copyTpl(
+      this.templatePath('config.sh'),
+      this.destinationPath('sh/config.sh'),
+      {
+        'dbName': this.props.wpdb,
+        'dbHost': this.props.wpdbHost,
+        'siteUrl': this.props.siteUrl,
+        'projectName': this.props.name,
+        'authorEmail': this.props.authorEmail,
+        'authorName': this.props.authorName,
+        'adminUser': this.props.adminUser,
+        'adminPass': this.props.adminPass,
+        'testData': this.props.testData,
+        'childTheme': this.props.childTheme,
+        'repoUrl': this.props.repoUrl,
+        'subrepoUploads': this.props.subrepoUploads,
+        'hostDeployName': this.props.hostDeployName,
+        'hostDeployPath': this.props.hostDeployPath,
+        'hostDeployUser': this.props.hostDeployUser
+      }
+    );
+    this.fs.copy(
+      this.templatePath('deploy.sh'),
+      this.destinationPath('sh/deploy.sh')
     );
     this.fs.copyTpl(
       this.templatePath('setup-remote.sh'),

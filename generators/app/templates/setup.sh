@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Setting permission
+chmod 775 ./sh/package.sh;
+chmod 775 ./sh/reset.sh;
+chmod 775 ./sh/sidebar-export.php;
+chmod 775 ./sh/deploy.sh;
+chmod 775 ./sh/config.sh;
+
 # Latest wordpress download
 wp core download
 
@@ -52,8 +59,7 @@ cd wp-content/uploads/;
     git commit -m "init";
     git remote add origin <%=subrepoUploads%>;
     echo '------------------------';
-    echo 'First commit wp-content/uploads';
-    echo 'Then commit main repo, this is for git submodule.';
+    echo 'git submoudle created for wp-content/uploads';
     echo '------------------------';
     sleep 30;
   fi;

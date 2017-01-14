@@ -141,8 +141,8 @@ module.exports = yeoman.Base.extend({
     },
     {
       name: 'hostDeployPath',
-      message: 'Enter full path for auto deploy. [example /var/www/html/projectname]',
-      default: '',
+      message: 'Enter full path (note exclude project name). [example /var/www/html/]',
+      default: '/var/www/html/',
       validate: function(str) {
         return str.length > 0;
       }
@@ -150,7 +150,7 @@ module.exports = yeoman.Base.extend({
     {
       name: 'hostDeployUser',
       message: 'Enter deploy host user name',
-      default: '',
+      default: 'ec2-user',
       validate: function(str) {
         return str.length > 0;
       }

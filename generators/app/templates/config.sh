@@ -8,5 +8,4 @@ WAUTHOREMAIL="<%=authorEmail%>";
 WHOSTDEPLOYNAME="<%=hostDeployName%>";
 WHOSTDEPLOYPATH="<%=hostDeployPath%>";
 WHOSTDEPLOYUSER="<%=hostDeployUser%>";
-
-
+WREPO="<%=repoUrl%>";

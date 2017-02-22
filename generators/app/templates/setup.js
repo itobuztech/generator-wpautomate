@@ -52,7 +52,9 @@ gulp.task('wpSetup', function() {
     );
 });
 
-
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 // rename project
 // replace string from gulp task
@@ -84,7 +86,7 @@ gulp.task('rp:textdomain', function(){
   if (p.name!==config.themename) {
     return gulp.src([config.themefolder+'**/*.php', config.themefolder+'**/*.css'])
       .pipe(g.replace(config.textdomain, p.name))
-      .pipe(g.replace(config.packageName, p.name))
+      .pipe(g.replace('@package '+config.packageName, '@package '+capitalizeFirstLetter(p.name)))
       .pipe(gulp.dest(config.themefolder));
    }else {
       console.log('change package name.');

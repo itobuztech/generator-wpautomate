@@ -8,16 +8,12 @@ var p = require('../package.json');
 var shell = require('shelljs');
 require('shelljs/global');
 var del = require('del');
-var themerepoLocation = 'https://github.com/developer-prosenjit/wpautomate.git';
 var themerepo = '<%=themerepo%>';
-if (themerepo==='bitbucket') {
-  themerepoLocation = 'git@bitbucket.org:itobuztech/wp-automate.git';
-}
 
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
 gulp.task('themeinstall', function() {
 
-  shell.exec('git clone --depth=1 '+themerepoLocation+' ./wp-content/themes/wpautomate');
+  shell.exec('git clone --depth=1 '+themerepo+' ./wp-content/themes/wpautomate');
 
   if (ls('wp-content/themes/wpautomate/').code !==2) {
      shell.exec('gulp wp-rp');

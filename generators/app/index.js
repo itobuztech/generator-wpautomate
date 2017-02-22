@@ -72,8 +72,10 @@ module.exports = yeoman.Base.extend({
       name: 'themerepo',
       message: 'What theme do you need?',
       choices: [
-      'Github',
-      'Bitbucket'
+      'Twentyseventeen',
+      'Wpautomate-lite',
+      'Wpautomate-pro',
+      '_s'
       ],
       filter: function (val) {
         return val.toLowerCase();
@@ -162,14 +164,37 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    var scssPath, cssPath;
-    if(this.props.themerepo==='github'){
-      scssPath = 'sass';
-      cssPath = '';
-    }else {
-      scssPath = 'scss';
-      cssPath = 'css/';
+    var scssPath, cssPath, textdomain, package, subpackage;
+
+    switch(this.props.themerepo) {
+      case 'twentyseventeen': 
+        this.props.themerepo = 'https://github.com/WordPress/twentyseventeen.git';
+        textdomain = 'twentyseventeen';
+        package = 'WordPress';
+        subpackage = 'Twenty_Seventeen';
+
+      case 'wpautomate-pro': 
+        this.props.themerepo = 'git@bitbucket.org:itobuztech/wp-automate.git';
+        textdomain = 'wpautomate';
+        package = 'wpautomate';
+        subpackage = 'wpautomate';
+
+      case '_s': 
+        this.props.themerepo = 'https://github.com/developer-prosenjit/wpautomate.git';
+        scssPath = 'sass';
+        cssPath = '';
+        textdomain = 'wpautomate';
+        package = 'Wpautomate';
+        subpackage = '';
+
+      default: 
+        this.props.themerepo = 'https://github.com/developer-prosenjit/wpautomate-lite.git'
+        scssPath = 'scss';
+        cssPath = 'css/';
     }
+
+
+
     // root files
     this.fs.copyTpl(
       this.templatePath('_bower.json'),

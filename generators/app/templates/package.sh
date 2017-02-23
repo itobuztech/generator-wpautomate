@@ -11,7 +11,7 @@ wp export --dir=../main/demo-content --post_type="page" --filename_format=<%=pro
 wp export --dir=../main/demo-content  --filename_format=<%=projectName%>-all-content.xml
 
 
-<% if (themerepo==='bitbucket')  { %>
+<% if (themerepo==='wpautomate-pro')  { %>
 ## Demo data 1
 wp option get theme_options --format=json  > ../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/theme-options.txt
 wp export --dir=../wp-content/themes/<%=projectName%>/admin/redux-extensions/extensions/wbc_importer/demo-data/demo1/  --filename_format=content.xml

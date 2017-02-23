@@ -27,7 +27,7 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       name: 'name',
-      message: 'Your project name',
+      message: 'Your project name (project name should be lowercase. without sapce, specialcharecter)',
       default: makeGeneratorName(path.basename(process.cwd())),
       validate: function (str) {
         return str.length > 0;
@@ -136,7 +136,7 @@ module.exports = yeoman.Base.extend({
     {
       name: 'hostDeployName',
       message: 'Enter deploy host name.',
-      default: '',
+      default: 'ec2-host',
       validate: function(str) {
         return str.length > 0;
       }
@@ -164,36 +164,38 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    var scssPath, cssPath, textdomain, package, subpackage;
-
+    var scssPath, cssPath, textdomain, packageName, subpackage, repoUrl;
     switch(this.props.themerepo) {
       case 'twentyseventeen': 
-        this.props.themerepo = 'https://github.com/WordPress/twentyseventeen.git';
+        repoUrl = 'https://github.com/WordPress/twentyseventeen.git';
         textdomain = 'twentyseventeen';
-        package = 'WordPress';
+        packageName = 'WordPress';
         subpackage = 'Twenty_Seventeen';
+        break;
 
       case 'wpautomate-pro': 
-        this.props.themerepo = 'git@bitbucket.org:itobuztech/wp-automate.git';
+        repoUrl = 'git@bitbucket.org:itobuztech/wp-automate.git';
         textdomain = 'wpautomate';
-        package = 'wpautomate';
+        packageName = 'wpautomate';
         subpackage = 'wpautomate';
+        break;
 
       case '_s': 
-        this.props.themerepo = 'https://github.com/developer-prosenjit/wpautomate.git';
+        repoUrl = 'https://github.com/developer-prosenjit/wpautomate.git';
         scssPath = 'sass';
         cssPath = '';
         textdomain = 'wpautomate';
-        package = 'Wpautomate';
+        packageName = 'Wpautomate';
         subpackage = '';
+        break;
 
       default: 
-        this.props.themerepo = 'https://github.com/developer-prosenjit/wpautomate-lite.git'
+        repoUrl = 'https://github.com/developer-prosenjit/wpautomate-lite.git'
         scssPath = 'scss';
         cssPath = 'css/';
     }
 
-
+    console.log(textdomain);
 
     // root files
     this.fs.copyTpl(
@@ -252,7 +254,8 @@ module.exports = yeoman.Base.extend({
         'cssPath': cssPath,
         'authorEmail': this.props.authorEmail,
         'authorName': this.props.authorName,
-        'supportURL': this.props.supportURL
+        'supportURL': this.props.supportURL,
+        'textdomain': textdomain
       }
     );
     this.fs.copy(
@@ -291,7 +294,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('setup.js'),
       this.destinationPath('gulp-tasks/setup.js'),
       {
-        'themerepo': this.props.themerepo
+        'themerepo': repoUrl
       }
     );
     this.fs.copy(
@@ -429,6 +432,14 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('deploy.php'),
       this.destinationPath('deploy/deploy.php')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('rename.js'),
+      this.destinationPath('gulp-tasks/rename.js'),
+      {
+        'themerepo': this.props.themerepo
+      }
     );
 
   },

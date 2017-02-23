@@ -7,7 +7,7 @@
   "scripts" : "wp-content/themes/wpautomate/js/",
   "themefolder" : "wp-content/themes/wpautomate/",
   "themename" : "wpautomate",
-  "textdomain": "wpautomate",
+  "textdomain": "<%=textdomain%>",
   "packageName": "wpautomate",
   "authorName" : "<%=authorName%>",
   "authorEmail" : "<%=authorEmail%>",

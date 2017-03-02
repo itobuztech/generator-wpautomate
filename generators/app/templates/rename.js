@@ -63,16 +63,6 @@ gulp.task('rp:copy', function(){
   }
 });
 
-'use strict';
-/* global console, ls */
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var g = require('gulp-load-plugins')();
-var config = require('./config.json');
-var p = require('../package.json');
-var shell = require('shelljs');
-require('shelljs/global');
-var del = require('del');
 
 gulp.task('rp:gitignore', function(){
   if (p.name!==config.themename) {

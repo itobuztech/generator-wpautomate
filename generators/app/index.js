@@ -166,21 +166,21 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     var scssPath, cssPath, textdomain, packageName, subpackage, repoUrl;
     switch(this.props.themerepo) {
-      case 'twentyseventeen': 
+      case 'twentyseventeen':
         repoUrl = 'https://github.com/WordPress/twentyseventeen.git';
         textdomain = 'twentyseventeen';
         packageName = 'WordPress';
         subpackage = 'Twenty_Seventeen';
         break;
 
-      case 'wpautomate-pro': 
+      case 'wpautomate-pro':
         repoUrl = 'git@bitbucket.org:itobuztech/wp-automate.git';
         textdomain = 'wpautomate';
         packageName = 'wpautomate';
         subpackage = 'wpautomate';
         break;
 
-      case '_s': 
+      case '_s':
         repoUrl = 'https://github.com/developer-prosenjit/wpautomate.git';
         scssPath = 'sass';
         cssPath = '';
@@ -189,10 +189,12 @@ module.exports = yeoman.Base.extend({
         subpackage = '';
         break;
 
-      default: 
+      default:
         repoUrl = 'https://github.com/developer-prosenjit/wpautomate-lite.git'
         scssPath = 'scss';
         cssPath = 'css/';
+        textdomain = 'wpautomate';
+        packageName = 'Wpautomate';
     }
 
     console.log(textdomain);
@@ -255,7 +257,8 @@ module.exports = yeoman.Base.extend({
         'authorEmail': this.props.authorEmail,
         'authorName': this.props.authorName,
         'supportURL': this.props.supportURL,
-        'textdomain': textdomain
+        'textdomain': textdomain,
+        'packageName': packageName
       }
     );
     this.fs.copy(

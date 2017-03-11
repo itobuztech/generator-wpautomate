@@ -8,7 +8,7 @@
   "themefolder" : "wp-content/themes/wpautomate/",
   "themename" : "wpautomate",
   "textdomain": "<%=textdomain%>",
-  "packageName": "wpautomate",
+  "packageName": "<%=packageName%>",
   "authorName" : "<%=authorName%>",
   "authorEmail" : "<%=authorEmail%>",
   "suopportUrl" : "<%=supportURL%>"

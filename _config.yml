@@ -1,11 +1,10 @@
 # Site settings
-title: Monochrome | A minimal, responsive Jekyll blog theme
-description: "A minimal, responsive, ready to use blog template, built with Jekyll."
-url: "http://www.dyutibarma.github.io/monochrome"
+title: Generator wpautomate | wordpress cli, wp cli, gulp environment
+description: "A better workflow with gulp wp-cli"
+url: "https://itobuztech.github.io/generator-wpautomate"
 author:
-  name: "The Review Index"
-  email: "dyutibarma@gmail.com"
-  url: "https://thereviewindex.com"
+  name: "Prosenjit Manna"
+  email: "developer.prosenjit@gmail.com"
 
 # Build settings
 baseurl: /generator-wpautomate # Change this to your relative path (ex: /blog/), or leave just a /

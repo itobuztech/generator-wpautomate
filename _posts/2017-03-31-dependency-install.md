@@ -59,10 +59,19 @@ sudo npm install -g generator-wp-automate
 ## Install git 
 sudo apt-get install git
 
-## Sublime
+## Sublime (optional)
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install sublime-text-installer
+
+## Install visual code (optional)
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+sudo apt-get update
+sudo apt-get install code
+
 
 ## Package install 
 ## GO >> https://gist.github.com/developer-prosenjit/0e552d1e1fa850dfb5507d40e665e0ee

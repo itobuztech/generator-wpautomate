@@ -3,21 +3,23 @@ var gulp = require('gulp');
 var gcmq = require('gulp-group-css-media-queries');
 var g = require('gulp-load-plugins')();
 var config = require('./config.json');
+var iconfont = require('gulp-iconfont');
+var iconfontCss = require('gulp-iconfont-css');
 
 
-// styles 
+// styles
 gulp.task('styles:dev', function () {
 
   gulp.src(config.stylesScss)
-    .pipe(g.plumber())    
+    .pipe(g.plumber())
     .pipe(g.sourcemaps.init())
     .pipe(g.sass({
       outputStyle: 'nested',
       precision: 10,
-      includePaths: ['.'],      
+      includePaths: ['.'],
     }))
-    .on('error',console.log.bind(console, 'Sass error:')) 
-    
+    .on('error',console.log.bind(console, 'Sass error:'))
+
     .pipe(g.autoprefixer({
       browsers: [
         'last 2 versions',
@@ -34,13 +36,13 @@ gulp.task('styles:dev', function () {
 gulp.task('styles:b', function () {
 
   gulp.src(config.stylesScss)
-    .pipe(g.plumber())  
+    .pipe(g.plumber())
     .pipe(g.sass({
       outputStyle: 'nested',
       precision: 10,
-      includePaths: ['.'],      
+      includePaths: ['.'],
     }))
-    .on('error',console.log.bind(console, 'Sass error:')) 
+    .on('error',console.log.bind(console, 'Sass error:'))
     .pipe(g.autoprefixer({
       browsers: [
         'last 2 versions',
@@ -54,4 +56,21 @@ gulp.task('styles:b', function () {
     .pipe(g.rename({extname: '.css', suffix: ".min"}))
     .pipe(gulp.dest(config.compileStyles));
 
+});
+
+
+var fontName = 'Icons';
+
+gulp.task('iconfont', function(){
+  gulp.src([config.themefolder +'assets/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: config.themefolder +'assets/icons/_icons.scss',
+      targetPath: '../scss/_icons.scss',
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      normalize:true
+     }))
+    .pipe(gulp.dest(config.themefolder +'fonts/'));
 });

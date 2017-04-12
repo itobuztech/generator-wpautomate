@@ -445,6 +445,11 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    this.fs.copy(
+      this.templatePath('_icons.scss'),
+      this.destinationPath('sh/_icons.scss')
+    );
+
   },
 
   install: function () {

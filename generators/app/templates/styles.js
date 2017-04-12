@@ -62,10 +62,11 @@ gulp.task('styles:b', function () {
 var fontName = 'Icons';
 
 gulp.task('iconfont', function(){
+  console.log('All svg should be placed this location '+config.themefolder +'assets/icons');
   gulp.src([config.themefolder +'assets/icons/*.svg'])
     .pipe(iconfontCss({
       fontName: fontName,
-      path: config.themefolder +'assets/icons/_icons.scss',
+      path: './sh/_icons.scss',
       targetPath: '../scss/_icons.scss',
     }))
     .pipe(iconfont({

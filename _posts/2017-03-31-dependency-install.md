@@ -6,6 +6,8 @@ header: Install dependency first
 
 
 Installtion script in ubuntu 16.10
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LQcaeldygc8/0.jpg)](https://www.youtube.com/watch?v=LQcaeldygc8)
+
 
 <pre>
 #http://www.tecmint.com/install-lamp-on-ubuntu-16-10/

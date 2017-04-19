@@ -5,12 +5,15 @@ header: Install dependency first
 ---
 
 
-Installtion script in ubuntu 16.10
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LQcaeldygc8/0.jpg)](https://www.youtube.com/watch?v=LQcaeldygc8)
 
+
+<a href="https://www.youtube.com/watch?v=LQcaeldygc8" target="_blank">
+<img class="image-left" src="https://img.youtube.com/vi/LQcaeldygc8/0.jpg">
+</a>
+
+Installtion script in ubuntu 16.10
 
 <pre>
-#http://www.tecmint.com/install-lamp-on-ubuntu-16-10/
 sudo apt install apache2
 sudo systemctl status apache2.service
 sudo netstat -tlpn
@@ -75,9 +78,9 @@ sudo apt-get update
 sudo apt-get install code
 
 
-## Package install 
+## Package install (optional)
 ## GO >> https://gist.github.com/developer-prosenjit/0e552d1e1fa850dfb5507d40e665e0ee
 
-## Install phpcs 
+## Install phpcs (optional)
 #https://gist.github.com/developer-prosenjit/7d8539c711ac5f76bd0199dca8f9c032
 <pre>

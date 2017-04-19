@@ -13,7 +13,7 @@ header: Install dependency first
 
 Installtion script in ubuntu 16.10
 
-<pre>
+```sh
 sudo apt install apache2
 sudo systemctl status apache2.service
 sudo netstat -tlpn
@@ -83,4 +83,4 @@ sudo apt-get install code
 
 ## Install phpcs (optional)
 #https://gist.github.com/developer-prosenjit/7d8539c711ac5f76bd0199dca8f9c032
-<pre>
+```

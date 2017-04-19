@@ -2,10 +2,10 @@
 title: Install dependency first
 description: Install dependency first for generator-wpautomate
 header: Install dependency first
+
+categories: [testing, sticky]
+
 ---
-
-
-
 
 <a href="https://www.youtube.com/watch?v=LQcaeldygc8" target="_blank">
 <img class="image-left" src="https://img.youtube.com/vi/LQcaeldygc8/0.jpg">

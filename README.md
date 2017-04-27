@@ -1,5 +1,7 @@
 # generator-wp-automate 
 
+## New documentation site
+[Github page](https://itobuztech.github.io/generator-wpautomate/)
 
 ## Installation
 

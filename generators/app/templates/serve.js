@@ -13,5 +13,5 @@ gulp.task('serve', ['styles:dev'], function () {
     g.livereload.changed(file.path);
   });
   gulp.watch(config.themefolder+'/**/*.scss', ['styles:dev']);
-  gulp.watch(config.themefolder+'/assets/icons/*.svg', ['iconfont']);
+  gulp.watch(config.themefolder+'/assets/icons/*.svg', ['icon']);
 });

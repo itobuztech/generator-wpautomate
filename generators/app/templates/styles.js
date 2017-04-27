@@ -59,7 +59,11 @@ gulp.task('styles:b', function () {
 });
 
 
+
 var fontName = 'Icons';
+gulp.task('icon', function() {
+  runSequence('iconfont:variable', 'iconfont', 'iconfont:preview');
+});
 
 gulp.task('iconfont', function(){
   console.log('All svg should be placed this location '+config.themefolder +'assets/icons');
@@ -74,4 +78,32 @@ gulp.task('iconfont', function(){
       normalize:true
      }))
     .pipe(gulp.dest(config.themefolder +'fonts/'));
+});
+
+gulp.task('iconfont:variable', function(){
+  gulp.src([config.themefolder +'assets/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: './sh/_icons-variables.scss',
+      targetPath: '../scss/_icons-variables.scss',
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      normalize:true
+     }))
+    .pipe(gulp.dest(config.themefolder +'fonts/'));
+});
+
+gulp.task('iconfont:preview', function(){
+  gulp.src([config.themefolder +'assets/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: './sh/icon-preview.html',
+      targetPath: '../icon-preview.html',
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      normalize:true
+     }))
+    .pipe(gulp.dest(config.themefolder + 'temp/fonts'));
 });

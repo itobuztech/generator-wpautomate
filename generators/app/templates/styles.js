@@ -5,6 +5,8 @@ var g = require('gulp-load-plugins')();
 var config = require('./config.json');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
+var runSequence = require('run-sequence');
+
 
 
 // styles

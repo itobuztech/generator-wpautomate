@@ -34,12 +34,17 @@ sudo apt install php7.0-mysql mariadb-server mariadb-client
 sudo mysql_secure_installation
 #$ sudo mysql 
 #MariaDB> use mysql;
-#MariaDB> update user set plugin=’‘ where User=’root’;
+#MariaDB> update user set plugin='' where User='root';
 #MariaDB> flush privileges;
 #MariaDB> exit
 #mysql -u root -p
 sudo apt install php-gettext phpmyadmin
 ## Skip dbconfig common 
+sudo gedit /etc/apache2/apache2.conf
+# Add  new line at the end of the file 
+Include /etc/phpmyadmin/apache.conf
+sudo systemctl restart apache2
+# Now check phpmyadmin working
 
 ## Install wp cli 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
